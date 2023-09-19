@@ -30,7 +30,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Title()
+            //Title()
+            Cover()
         }
     }
 }
@@ -83,6 +84,7 @@ fun Title() {
             singleLine = true
         )
 
+
         Button(
             onClick = {
                 var catena = ""
@@ -90,8 +92,7 @@ fun Title() {
                     catena += "Password: at least 10 characters\n"
                 if (inputFirstNumber.length == 0)
                     catena += "User: empty"
-                resultOfTwoNUmbers = (
-                        (inputFirstNumber.toInt() +
+                resultOfTwoNUmbers = ((inputFirstNumber.toInt() +
                                 inputSecondNumber.toInt()).toString())
             },
             modifier = Modifier.padding(10.dp)
@@ -105,7 +106,6 @@ fun Title() {
             style = TextStyle(
                 fontSize = 20.sp)
         )
-
     }
 }
 
