@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.project4
+package com.example.muriach_proyecto_5.ui.theme.Project4
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -21,15 +22,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 /*
-In this exercise we are going to see the sum of two input numbers
+We add two numbers and multiply the result by the third
 */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise1() {
+fun Exercise4(navController: NavController) {
     Text(
-        text = "Welcome to: 'SUM OF TWO NUMBERS'",
+        text = "Welcome to: 'SUM OF THREE NUMBERS'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 20.sp
@@ -49,7 +51,8 @@ fun Exercise1() {
         //Declaration of variables
         var inputFirstNumber by remember { mutableStateOf("") }
         var inputSecondNumber by remember { mutableStateOf("") }
-        var resultOfTwoNUmbers by remember { mutableStateOf("") }
+        var inputThirdNumber by remember { mutableStateOf("") }
+        var resultOfThreeNUmbers by remember { mutableStateOf("") }
 
         OutlinedTextField(
             value = inputFirstNumber,
@@ -75,12 +78,24 @@ fun Exercise1() {
             singleLine = true
         )
 
+        OutlinedTextField(
+            value = inputThirdNumber,
+            onValueChange = { inputThirdNumber = it },
+            label = {
+                Text("Second number")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
 
         Button(
             onClick = {
-                //Calculate the sum of two numbers when push the buttom
-                resultOfTwoNUmbers = ((inputFirstNumber.toFloat() +
-                        inputSecondNumber.toFloat()).toString())
+                //Calculate the sum of three numbers when click the buttom
+                resultOfThreeNUmbers = (((inputFirstNumber.toFloat() +
+                        inputSecondNumber.toFloat()) * inputThirdNumber.toFloat()).toString())
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -88,13 +103,20 @@ fun Exercise1() {
         }
 
         Text(
-            text = "Result: " + resultOfTwoNUmbers,
+            text = "Result: " + resultOfThreeNUmbers,
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
             )
         )
+
+        Button(
+            onClick = {navController.navigate("Cover")},
+            modifier = Modifier.padding(10.dp)
+                .align(Alignment.End)
+
+        ) {
+            Text(text = "Previous")
+        }
     }
 }
-
-

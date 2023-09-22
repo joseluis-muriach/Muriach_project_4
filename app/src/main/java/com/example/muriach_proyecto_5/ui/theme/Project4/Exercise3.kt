@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.project4
+package com.example.muriach_proyecto_5.ui.theme.Project4
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -21,10 +22,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise3() {
+fun Exercise3(navController: NavController) {
     Text(
         text = "Welcome to: 'BUY THE PRODUCT'",
         textAlign = TextAlign.Center,
@@ -90,5 +92,14 @@ fun Exercise3() {
                 fontSize = 20.sp
             )
         )
+
+        Button(
+            onClick = {navController.navigate("Cover")},
+            modifier = Modifier.padding(10.dp)
+                .align(Alignment.End)
+
+        ) {
+            Text(text = "Previous")
+        }
     }
 }
