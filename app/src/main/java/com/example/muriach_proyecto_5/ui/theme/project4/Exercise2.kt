@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.project5
+package com.example.muriach_proyecto_5.ui.theme.project4
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -48,6 +48,7 @@ fun Exercise_2() {
         verticalArrangement = Arrangement.Center
     ) {
 
+        //Declaration of variables
         var inputFirstNumber by remember { mutableStateOf("") }
         val numberOfSides by remember { mutableStateOf("4") }
         var resultOfTwoNUmbers by remember { mutableStateOf("") }
@@ -66,8 +67,9 @@ fun Exercise_2() {
 
         Button(
             onClick = {
-                resultOfTwoNUmbers = ((inputFirstNumber.toInt() *
-                        numberOfSides.toInt()).toString())
+                //Calculate the perimetre when push the buttom
+                resultOfTwoNUmbers = ((inputFirstNumber.toFloat() *
+                        numberOfSides.toFloat()).toString())
             },
             modifier = Modifier.padding(10.dp)
         ) {

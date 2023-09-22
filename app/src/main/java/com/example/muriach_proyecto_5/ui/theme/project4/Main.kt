@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.project5
+package com.example.muriach_proyecto_5.ui.theme.project4
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,7 +13,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             //Exercise1()
             //Exercise_2()
-            MainBuyProduct()
+            //Exercise3()
+            Exercise4()
         }
     }
 }

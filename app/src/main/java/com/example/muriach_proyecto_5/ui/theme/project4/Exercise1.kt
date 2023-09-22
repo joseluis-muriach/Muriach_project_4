@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.project5
+package com.example.muriach_proyecto_5.ui.theme.project4
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -46,6 +46,7 @@ fun Exercise1() {
         verticalArrangement = Arrangement.Center
     ) {
 
+        //Declaration of variables
         var inputFirstNumber by remember { mutableStateOf("") }
         var inputSecondNumber by remember { mutableStateOf("") }
         var resultOfTwoNUmbers by remember { mutableStateOf("") }
@@ -77,8 +78,9 @@ fun Exercise1() {
 
         Button(
             onClick = {
-                resultOfTwoNUmbers = ((inputFirstNumber.toInt() +
-                        inputSecondNumber.toInt()).toString())
+                //Calculate the sum of two numbers when push the buttom
+                resultOfTwoNUmbers = ((inputFirstNumber.toFloat() +
+                        inputSecondNumber.toFloat()).toString())
             },
             modifier = Modifier.padding(10.dp)
         ) {

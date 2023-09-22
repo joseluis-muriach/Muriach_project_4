@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.project5
+package com.example.muriach_proyecto_5.ui.theme.project4
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainBuyProduct() {
+fun Exercise3() {
     Text(
         text = "Welcome to: 'BUY THE PRODUCT'",
         textAlign = TextAlign.Center,
@@ -43,6 +43,7 @@ fun MainBuyProduct() {
         verticalArrangement = Arrangement.Center
     ) {
 
+        //Declaration of variables
         var inputFirstNumber by remember { mutableStateOf("") }
         var inputSecondNumber by remember { mutableStateOf("") }
         var resultOfTwoNUmbers by remember { mutableStateOf("") }
@@ -74,8 +75,8 @@ fun MainBuyProduct() {
 
         Button(
             onClick = {
-                resultOfTwoNUmbers = ((inputFirstNumber.toInt() *
-                        inputSecondNumber.toInt()).toString())
+                resultOfTwoNUmbers = ((inputFirstNumber.toFloat() *
+                        inputSecondNumber.toFloat()).toString())
             },
             modifier = Modifier.padding(10.dp)
         ) {
