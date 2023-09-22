@@ -1,8 +1,5 @@
 package com.example.muriach_proyecto_5.ui.theme.project5
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,24 +23,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-class Exercise2: ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            Cover()
-        }
-    }
-}
-
+/*
+In this program we are going to see the perimeter of square
+*/
 @Preview(showBackground = true)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Cover() {
+fun Exercise_2() {
     Text(
         text = "Welcome to: Perimeter of a square",
         textAlign = TextAlign.Center,
         style = TextStyle(
-            fontSize = 20.sp),
+            fontSize = 20.sp
+        ),
         color = Color.Blue,
         fontWeight = FontWeight.Bold,
         modifier = Modifier
@@ -75,21 +67,25 @@ fun Cover() {
         Button(
             onClick = {
                 resultOfTwoNUmbers = ((inputFirstNumber.toInt() *
-                                numberOfSides.toInt()).toString())
+                        numberOfSides.toInt()).toString())
             },
-            modifier = Modifier.padding(10.dp)){
+            modifier = Modifier.padding(10.dp)
+        ) {
 
             Text(text = "Calculate")
         }
 
-        Text(text = "The perimeter of the square is: ",
+        Text(
+            text = "The perimeter of the square is: ",
             style = TextStyle(fontSize = 20.sp),
-            modifier = Modifier.padding(horizontal = 10.dp))
+            modifier = Modifier.padding(horizontal = 10.dp)
+        )
         Text(
             text = resultOfTwoNUmbers,
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
-                fontSize = 20.sp)
+                fontSize = 20.sp
+            )
         )
     }
 }

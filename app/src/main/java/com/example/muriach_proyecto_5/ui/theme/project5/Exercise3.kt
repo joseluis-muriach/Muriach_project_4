@@ -22,14 +22,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-/*
-In this exercise we are going to see the sum of two input numbers
-*/
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise1() {
+fun MainBuyProduct() {
     Text(
-        text = "Welcome to: 'SUM OF TWO NUMBERS'",
+        text = "Welcome to: 'BUY THE PRODUCT'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 20.sp
@@ -54,7 +51,7 @@ fun Exercise1() {
             value = inputFirstNumber,
             onValueChange = { inputFirstNumber = it },
             label = {
-                Text("First number")
+                Text("Product price")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -66,7 +63,7 @@ fun Exercise1() {
             value = inputSecondNumber,
             onValueChange = { inputSecondNumber = it },
             label = {
-                Text("Second number")
+                Text("Quantity")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -77,7 +74,7 @@ fun Exercise1() {
 
         Button(
             onClick = {
-                resultOfTwoNUmbers = ((inputFirstNumber.toInt() +
+                resultOfTwoNUmbers = ((inputFirstNumber.toInt() *
                         inputSecondNumber.toInt()).toString())
             },
             modifier = Modifier.padding(10.dp)
@@ -86,7 +83,7 @@ fun Exercise1() {
         }
 
         Text(
-            text = "Result: " + resultOfTwoNUmbers,
+            text = "Total price: " + resultOfTwoNUmbers,
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
@@ -94,5 +91,3 @@ fun Exercise1() {
         )
     }
 }
-
-
