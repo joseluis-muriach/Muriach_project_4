@@ -20,7 +20,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -31,7 +30,7 @@ In this program we are going to see the perimeter of square
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise_2(navController: NavController) {
+fun Exercise2(navController: NavController) {
     Text(
         text = "Welcome to: Perimeter of a square",
         textAlign = TextAlign.Center,
