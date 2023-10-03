@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project4
+package com.example.muriach_project_7
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -24,40 +25,41 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
+
 /*
-In this exercise we are going to see the sum of two input numbers
+In this exercise when we introduce three numbers
 */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise1(navController: NavController) {
+fun Exercise19(navController: NavController) {
     Text(
-        text = "Welcome to: 'SUM OF TWO NUMBERS'",
+        text = "Welcome to: \n 'PROBLEM N.2'",
         textAlign = TextAlign.Center,
         style = TextStyle(
-            fontSize = 20.sp
+            fontSize = 30.sp
         ),
-        color = Color.Blue,
+        color = Color.Gray,
         fontWeight = FontWeight.Bold,
         modifier = Modifier
             .fillMaxSize()
             .padding(vertical = 20.dp),
     )
-
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center
     ) {
 
-        //Declaration of variables
-        var inputFirstNumber by remember { mutableStateOf("") }
-        var inputSecondNumber by remember { mutableStateOf("") }
-        var resultOfTwoNUmbers by remember { mutableStateOf("") }
+        var firstNumber by remember { mutableStateOf("") }
+        var secondNumber by remember { mutableStateOf("") }
+        var thirdNumber by remember { mutableStateOf("") }
+        var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = inputFirstNumber,
-            onValueChange = { inputFirstNumber = it },
+            value = firstNumber,
+            onValueChange = { firstNumber = it },
             label = {
-                Text("First number")
+                Text("Introduce first number: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -66,10 +68,22 @@ fun Exercise1(navController: NavController) {
         )
 
         OutlinedTextField(
-            value = inputSecondNumber,
-            onValueChange = { inputSecondNumber = it },
+            value = secondNumber,
+            onValueChange = { secondNumber = it },
             label = {
-                Text("Second number")
+                Text("Introduce second number: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = thirdNumber,
+            onValueChange = { thirdNumber = it },
+            label = {
+                Text("Introduce third number: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -79,17 +93,24 @@ fun Exercise1(navController: NavController) {
 
         Button(
             onClick = {
-                //Calculate the sum of two numbers when push the buttom
-                resultOfTwoNUmbers = ((inputFirstNumber.toFloat() +
-                        inputSecondNumber.toFloat()).toString())
+                if (firstNumber.toInt() > secondNumber.toInt()) {
+                    if (firstNumber.toInt() > thirdNumber.toInt()) {
+                        textResult = "The biggest number is: $firstNumber"
+                    }
+                } else if (secondNumber.toInt() > thirdNumber.toInt()) {
+                    textResult = "The biggest number is: $secondNumber"
+                } else {
+                    textResult = "The biggest number is: $thirdNumber"
+                }
             },
             modifier = Modifier.padding(10.dp)
         ) {
+
             Text(text = "Calculate")
         }
 
         Text(
-            text = "Result: " + resultOfTwoNUmbers,
+            text = textResult,
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
@@ -98,14 +119,15 @@ fun Exercise1(navController: NavController) {
 
         //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
         Button(
-            onClick = {navController.navigate("Cover")},
-            modifier = Modifier.padding(10.dp)
-                .align(Alignment.End)
+            onClick = {navController.navigate("CoverP7")},
+            modifier = Modifier
+                .padding(10.dp)
+                .align(Alignment.End),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
 
         ) {
-            Text(text = "Previous")
+            Text(text = "Previous",
+                color = Color.Black)
         }
     }
 }
-
-

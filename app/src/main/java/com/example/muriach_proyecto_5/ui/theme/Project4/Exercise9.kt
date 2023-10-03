@@ -25,13 +25,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 /*
-We add two numbers and multiply the result by the third
+In this exercise enter three numbers and the program return the sum and the average
 */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise4(navController: NavController) {
+fun Exercise9(navController: NavController) {
     Text(
-        text = "Welcome to: 'SUM OF THREE NUMBERS'",
+        text = "Welcome to: \n 'SUM OF THREE NUMBERS AND AVERAGE'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 20.sp
@@ -52,7 +52,8 @@ fun Exercise4(navController: NavController) {
         var inputFirstNumber by remember { mutableStateOf("") }
         var inputSecondNumber by remember { mutableStateOf("") }
         var inputThirdNumber by remember { mutableStateOf("") }
-        var resultOfThreeNUmbers by remember { mutableStateOf("") }
+        var resultOfTheSum by remember { mutableStateOf("") }
+        var resultOfAverage by remember { mutableStateOf("") }
 
         OutlinedTextField(
             value = inputFirstNumber,
@@ -94,8 +95,12 @@ fun Exercise4(navController: NavController) {
         Button(
             onClick = {
                 //Calculate the sum of three numbers when click the buttom
-                resultOfThreeNUmbers = (((inputFirstNumber.toFloat() +
-                        inputSecondNumber.toFloat()) * inputThirdNumber.toFloat()).toString())
+                resultOfTheSum = "The result of the sum is: " + (inputFirstNumber.toFloat() +
+                        inputSecondNumber.toFloat() + inputThirdNumber.toFloat()).toString()
+
+                resultOfAverage = "The result of average is: " +
+                        ((inputFirstNumber.toFloat() + inputSecondNumber.toFloat() +
+                                inputThirdNumber.toFloat()) / 3) .toString()
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -103,7 +108,14 @@ fun Exercise4(navController: NavController) {
         }
 
         Text(
-            text = "Result: " + resultOfThreeNUmbers,
+            text = resultOfTheSum,
+            modifier = Modifier.padding(10.dp),
+            style = TextStyle(
+                fontSize = 20.sp
+            )
+        )
+        Text(
+            text = resultOfAverage,
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
@@ -111,7 +123,7 @@ fun Exercise4(navController: NavController) {
         )
 
         Button(
-            onClick = {navController.navigate("Cover")},
+            onClick = {navController.navigate("CoverP4")},
             modifier = Modifier.padding(10.dp)
                 .align(Alignment.End)
 

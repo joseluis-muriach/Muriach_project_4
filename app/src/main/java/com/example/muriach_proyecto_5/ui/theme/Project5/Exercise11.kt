@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project4
+package com.example.muriach_proyect_5.ui.theme.Project5
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -25,19 +26,18 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 /*
-In this program we are going to see the perimeter of square
+In this exercise we can see what number is biggest
 */
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise2(navController: NavController) {
+fun Exercise11(navController: NavController) {
     Text(
-        text = "Welcome to: Perimeter of a square",
+        text = "Welcome to: 'COMPARE TWO NUMBERS'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 20.sp
         ),
-        color = Color.Blue,
+        color = Color.Red,
         fontWeight = FontWeight.Bold,
         modifier = Modifier
             .fillMaxSize()
@@ -49,16 +49,14 @@ fun Exercise2(navController: NavController) {
         verticalArrangement = Arrangement.Center
     ) {
 
-        //Declaration of variables
-        var inputFirstNumber by remember { mutableStateOf("") }
-        val numberOfSides by remember { mutableStateOf("4") }
-        var resultOfTwoNUmbers by remember { mutableStateOf("") }
+        var firstNumber by remember { mutableStateOf("") }
+        var secondNumber by remember { mutableStateOf("") }
+        var result by remember { mutableStateOf("") }
 
-        OutlinedTextField(
-            value = inputFirstNumber,
-            onValueChange = { inputFirstNumber = it },
+        OutlinedTextField(value = firstNumber,
+            onValueChange = {firstNumber = it},
             label = {
-                Text("Enter the measure of the square")
+                Text("Introduce first number: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -66,41 +64,48 @@ fun Exercise2(navController: NavController) {
             singleLine = true
         )
 
-        Button(
-            onClick = {
-                //Calculate the perimetre when push the buttom
-                resultOfTwoNUmbers = ((inputFirstNumber.toFloat() *
-                        numberOfSides.toFloat()).toString())
+        OutlinedTextField(value = secondNumber,
+            onValueChange = {secondNumber = it},
+            label = {
+                Text("Introduce second number: ")
             },
-            modifier = Modifier.padding(10.dp)
-        ) {
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
 
-            Text(text = "Calculate")
+        Button(onClick = {
+            if (firstNumber.toDouble() > secondNumber.toDouble()) {
+                result = "The first number is biggest than second"
+            } else if (firstNumber.toDouble() < secondNumber.toDouble()){
+                result = "The second number is biggest than first"
+            } else {
+                result = "The numbers are equals"
+            }
+        },
+            modifier = Modifier.padding(10.dp)) {
+
+            Text(text = "Compare")
         }
 
         Text(
-            text = "The perimeter of the square is: ",
-            style = TextStyle(fontSize = 20.sp),
-            modifier = Modifier.padding(horizontal = 10.dp)
-        )
-
-        Text(
-            text = resultOfTwoNUmbers,
+            text = result,
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
             )
         )
 
+        //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
         Button(
-            onClick = {navController.navigate("Cover")},
+            onClick = {navController.navigate("CoverP5")},
             modifier = Modifier.padding(10.dp)
-                .align(Alignment.End)
+                .align(Alignment.End),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
 
         ) {
             Text(text = "Previous")
         }
     }
 }
-
-

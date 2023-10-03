@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -31,7 +32,8 @@ fun MainProject4(navController: NavController) {
         Image(
             painter = painterResource(R.drawable.android),
             contentDescription = "",
-            modifier = Modifier.size(200.dp)
+            modifier = Modifier
+                .size(200.dp)
                 .padding(bottom = 30.dp)
         )
 
@@ -41,31 +43,61 @@ fun MainProject4(navController: NavController) {
         )
         Spacer(modifier = Modifier.size(30.dp))
         Button(
-            onClick = { navController.navigate("Exercise1") },
+            onClick = { navController.navigate("Exercise5") },
             modifier = Modifier.width(250.dp)
         ) {
-            Text(text = "Exercise 1")
+            Text(text = "Exercise 5")
         }
 
         Button(
-            onClick = { navController.navigate("Exercise2") },
+            onClick = { navController.navigate("Exercise6") },
             modifier = Modifier.width(250.dp)
         ) {
-            Text(text = "Exercise 2")
+            Text(text = "Exercise 6")
         }
 
         Button(
-            onClick = {navController.navigate("Exercise3")},
+            onClick = {navController.navigate("Exercise7")},
             modifier = Modifier.width(250.dp),
         ) {
-            Text(text = "Exercise 3")
+            Text(text = "Exercise 7")
         }
 
         Button(
-            onClick = {navController.navigate("Exercise4")},
+            onClick = {navController.navigate("Exercise8")},
             modifier = Modifier.width(250.dp)
         ) {
-            Text(text = "Exercise 4")
+            Text(text = "Exercise 8")
+        }
+
+        Button(
+            onClick = {navController.navigate("Exercise9")},
+            modifier = Modifier.width(250.dp)
+        ) {
+            Text(text = "Exercise 9")
+        }
+
+        Button(
+            onClick = {navController.navigate("CoverMain")},
+            modifier = Modifier
+                .padding(10.dp)
+                .align(Alignment.Start),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.DarkGray)
+
+        ) {
+            Text(text = "All Projects")
+        }
+
+        Button(
+            onClick = {navController.navigate("CoverP5")},
+            modifier = Modifier
+                .padding(10.dp)
+                .align(Alignment.End),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+
+
+        ) {
+            Text(text = "Next project")
         }
     }
 }
