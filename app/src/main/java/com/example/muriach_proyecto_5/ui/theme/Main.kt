@@ -32,6 +32,14 @@ import com.example.muriach_proyecto_5.ui.theme.Project4.Exercise7
 import com.example.muriach_proyecto_5.ui.theme.Project4.Exercise8
 import com.example.muriach_proyecto_5.ui.theme.Project4.Exercise9
 import com.example.muriach_proyecto_5.ui.theme.Project4.MainProject4
+import com.example.muriach_proyecto_5.ui.theme.Project8.CoverP8
+import com.example.muriach_proyecto_5.ui.theme.Project8.Exercise23
+import com.example.muriach_proyecto_5.ui.theme.Project8.Exercise24
+import com.example.muriach_proyecto_5.ui.theme.Project8.Exercise25
+import com.example.muriach_proyecto_5.ui.theme.Project8.Exercise26
+import com.example.muriach_proyecto_5.ui.theme.Project8.Exercise27
+import com.example.muriach_proyecto_5.ui.theme.Project8.Exercise28
+import com.example.muriach_proyecto_5.ui.theme.Project8.Exercise29
 
 /*
 In "Main" in "setContent" we must write our function so we can to run our program
@@ -48,6 +56,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(navController = navController, startDestination = "CoverP4") {
                     composable("CoverMain") { CoverMain(navController)}
+
                     //Project 4
                     composable("CoverP4") { MainProject4(navController) }
                     composable("Exercise5") { Exercise5(navController) }
@@ -77,6 +86,16 @@ class MainActivity : ComponentActivity() {
                     composable("Exercise20") { Exercise20(navController) }
                     composable("Exercise21") { Exercise21(navController) }
 
+                    //Project 8
+                    composable("CoverP8") { CoverP8(navController) }
+                    composable("Exercise23") { Exercise23(navController) }
+                    composable("Exercise24") { Exercise24(navController) }
+                    composable("Exercise25") { Exercise25(navController) }
+                    composable("Exercise26") { Exercise26(navController) }
+                    composable("Exercise27") { Exercise27(navController) }
+                    composable("Exercise28") { Exercise28(navController) }
+                    composable("Exercise29") { Exercise29(navController) }
+                    composable("Exercise26") { Exercise26(navController) }
                 }
             }
         }

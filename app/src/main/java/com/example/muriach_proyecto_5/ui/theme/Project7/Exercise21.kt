@@ -25,6 +25,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
+/**
+ * This program show when you enter a number if is has a digit, two or three
+ */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

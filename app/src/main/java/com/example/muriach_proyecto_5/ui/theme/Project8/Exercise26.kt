@@ -1,7 +1,8 @@
-package com.example.muriach_project_7
+package com.example.muriach_proyecto_5.ui.theme.Project8
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -25,15 +26,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
+
 /*
-This program when you introduce a number tell if the number is positive, negative or null
+In this exercise when we introduce three numbers if they are equals, the program calculate
+the cube
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise20(navController: NavController) {
+fun Exercise26(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.3'",
+        text = "Welcome to: \n 'PROBLEM N.4'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -44,22 +47,52 @@ fun Exercise20(navController: NavController) {
             .fillMaxSize()
             .padding(vertical = 20.dp),
     )
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center
     ) {
 
-        Text(text = "When you enter a number i will tell you if is positive, negative or null",
-            modifier = Modifier.padding(10.dp))
+        Row(Modifier.fillMaxWidth()) {
+            Text(text = "Enter a date and the program will ell you if is christmas",
+                modifier = Modifier.padding(5.dp))
+
+        }
 
         var firstNumber by remember { mutableStateOf("") }
+        var secondNumber by remember { mutableStateOf("") }
+        var thirdNumber by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
             value = firstNumber,
             onValueChange = { firstNumber = it },
             label = {
-                Text("Introduce a number: ")
+                Text("Introduce the first number: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = secondNumber,
+            onValueChange = { secondNumber = it },
+            label = {
+                Text("Introduce the second number: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = thirdNumber,
+            onValueChange = { thirdNumber = it },
+            label = {
+                Text("Introduce the third: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -69,13 +102,12 @@ fun Exercise20(navController: NavController) {
 
         Button(
             onClick = {
-                if (firstNumber.toInt() > 0) {
-                    textResult = "The number $firstNumber is positive"
-
-                } else if (firstNumber.toInt() < 0) {
-                    textResult = "The number $firstNumber is negative"
+                if (firstNumber.toInt() == secondNumber.toInt() &&
+                    firstNumber.toInt() == thirdNumber.toInt()) {
+                    textResult = "Result: " +
+                            (firstNumber.toInt() * firstNumber.toInt() * firstNumber.toInt())
                 } else {
-                    textResult = "The result $firstNumber is null"
+                    textResult = "The numbers aren't equals"
                 }
             },
             modifier = Modifier.padding(10.dp)
@@ -94,15 +126,14 @@ fun Exercise20(navController: NavController) {
 
         //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
         Button(
-            onClick = {navController.navigate("CoverP7")},
+            onClick = {navController.navigate("CoverP8")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Blue)
 
         ) {
-            Text(text = "Previous",
-                color = Color.Black)
+            Text(text = "Previous")
         }
     }
 }

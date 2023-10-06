@@ -96,15 +96,13 @@ fun CoverP7(navController: NavController) {
             Text(text = "All projects")
         }
         Button(
-            onClick = {navController.navigate("CoverP7")},
+            onClick = {navController.navigate("CoverP8")},
             modifier = Modifier.padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Blue)
 
         ) {
-            Text(text = "Next project",
-                color = Color.Black
-            )
+            Text(text = "Next project")
         }
     }
 }

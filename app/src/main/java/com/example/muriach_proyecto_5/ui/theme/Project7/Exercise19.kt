@@ -2,6 +2,7 @@ package com.example.muriach_project_7
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -27,28 +28,35 @@ import androidx.navigation.NavController
 
 
 /*
-In this exercise when we introduce three numbers
+In this exercise when we introduce three numbers this compare all and show the biggest number
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Exercise19(navController: NavController) {
-    Text(
-        text = "Welcome to: \n 'PROBLEM N.2'",
-        textAlign = TextAlign.Center,
-        style = TextStyle(
-            fontSize = 30.sp
-        ),
-        color = Color.Gray,
-        fontWeight = FontWeight.Bold,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(vertical = 20.dp),
-    )
+        Text(
+            text = "Welcome to: \n 'PROBLEM N.2'",
+            textAlign = TextAlign.Center,
+            style = TextStyle(
+                fontSize = 30.sp
+            ),
+            color = Color.Gray,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(vertical = 20.dp),
+        )
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center
     ) {
+
+        Row(Modifier.fillMaxWidth()) {
+            Text(text = "Enter three numbers and the program will show the biggest number",
+                modifier = Modifier.padding(5.dp))
+
+        }
 
         var firstNumber by remember { mutableStateOf("") }
         var secondNumber by remember { mutableStateOf("") }
@@ -106,7 +114,7 @@ fun Exercise19(navController: NavController) {
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Calculate")
+            Text(text = "Compare")
         }
 
         Text(
