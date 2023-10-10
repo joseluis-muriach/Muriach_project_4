@@ -54,7 +54,7 @@ fun Exercise29(navController: NavController) {
 
         Row(Modifier.fillMaxWidth()) {
             Text(text = "In this exercise, when you introduce the coordinate x and y," +
-                    "the program will tell you in what quadrant is it",
+                    " the program will tell you in what quadrant is it",
                 modifier = Modifier.padding(5.dp))
         }
 

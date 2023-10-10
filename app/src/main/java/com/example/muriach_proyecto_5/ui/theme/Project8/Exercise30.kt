@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
+//ESTE EJERCICIO NO ME SALE, TENDRÉ QUE PREGUNTAR EN CLASE
 
 /*
 In this exercise, when we enter three numbers, the program will tell you if they are less than 10
@@ -54,15 +55,17 @@ fun Exercise30(navController: NavController) {
 
         Row(Modifier.fillMaxWidth()) {
             Text(text = "The program, when you introduce the three numbers, will tell you" +
-                    " if all numbers are less than 10",
+                    " the biggest number and the smallest",
                 modifier = Modifier.padding(5.dp))
         }
 
+        var arrayNumbers by remember { mutableStateOf(listOf<Int>()) }
         var firstNumber by remember { mutableStateOf("") }
         var secondNumber by remember { mutableStateOf("") }
         var thirdNumber by remember { mutableStateOf("") }
-        var numbers by remember { mutableStateOf(mutableListOf("")) }
         var textResult by remember { mutableStateOf("") }
+        var aux by remember { mutableStateOf("") }
+
 
         OutlinedTextField(
             value = firstNumber,
@@ -100,15 +103,18 @@ fun Exercise30(navController: NavController) {
             singleLine = true
         )
 
-        numbers.add(firstNumber)
-        numbers.add(secondNumber)
-        numbers.add(thirdNumber)
-
         Button(
             onClick = {
-                if (firstNumber.toInt() < 10 && secondNumber.toInt() <10 &&
-                    thirdNumber.toInt() < 10) {
+                val numbers = listOf(firstNumber, secondNumber, thirdNumber)
+                    .mapNotNull{ it.toIntOrNull() }
 
+                if (numbers.size == 3) {
+                    val maxNumber = numbers.maxOrNull()
+                    val minNumber = numbers.minOrNull()
+                    textResult = "El número más grande es: $maxNumber\n" +
+                            "El número más pequeño es: $minNumber"
+                } else {
+                    textResult = "Por favor, ingrese tres números válidos."
                 }
             },
             modifier = Modifier.padding(10.dp)
