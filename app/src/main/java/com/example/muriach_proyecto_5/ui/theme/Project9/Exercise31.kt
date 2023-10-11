@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -69,5 +70,18 @@ fun Exercise31(navController: NavController) {
                 fontSize = 20.sp
             )
         )
+        //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
+        Button(
+            onClick = {navController.navigate("CoverP9")},
+            modifier = Modifier
+                .padding(10.dp)
+                .align(Alignment.End),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+
+        ) {
+            Text(text = "Previous",
+                color = Color.White
+            )
+        }
     }
 }
