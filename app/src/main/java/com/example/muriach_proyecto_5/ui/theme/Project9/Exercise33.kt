@@ -33,9 +33,9 @@ In this exercise, when we enter a number the program shows you the first numbers
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise32(navController: NavController) {
+fun Exercise33(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.2'",
+        text = "Welcome to: \n 'PROBLEM N.3'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -59,6 +59,10 @@ fun Exercise32(navController: NavController) {
         }
 
         var inputNumberA by remember { mutableStateOf("") }
+        var inputNumberB  by remember { mutableStateOf("") }
+        var inputNumberC by remember { mutableStateOf("") }
+        var resultSum by remember { mutableStateOf("") }
+        var resultAverage by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
@@ -72,12 +76,38 @@ fun Exercise32(navController: NavController) {
                 .padding(10.dp),
             singleLine = true
         )
+        OutlinedTextField(
+            value = inputNumberB,
+            onValueChange = { inputNumberB = it },
+            label = {
+                Text("Introduce a number: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+        OutlinedTextField(
+            value = inputNumberC,
+            onValueChange = { inputNumberC = it },
+            label = {
+                Text("Introduce a number: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
 
         Button(
             onClick = {
-                      for(i in 0..inputNumberA.toInt()) {
-                          textResult += "$i "
-                      }
+                resultSum = (inputNumberA.toInt() +
+                        inputNumberB.toInt() + inputNumberC.toInt()).toString()
+                textResult = "The result of the sum is: $resultSum \n"
+
+                resultAverage = (resultSum.toFloat() / 3).toString()
+                textResult += "The result of the average is $resultAverage"
+
             },
             modifier = Modifier.padding(10.dp)
         ) {
