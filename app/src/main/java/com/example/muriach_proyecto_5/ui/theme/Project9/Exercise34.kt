@@ -28,12 +28,14 @@ import androidx.navigation.NavController
 
 
 /*
-In this exercise, when we enter a number the program shows you the first numbers up to your number.
+In this exercise, you can enter a number, if this number is between 1.20 and 1.30, the lenght
+is correct. After, the piece will save and when press the bottom 'Calculate', the program show it
+the quantity pieces is between this measures.
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise33(navController: NavController) {
+fun Exercise34(navController: NavController) {
     Text(
         text = "Welcome to: \n 'PROBLEM N.3'",
         textAlign = TextAlign.Center,
@@ -52,62 +54,37 @@ fun Exercise33(navController: NavController) {
         verticalArrangement = Arrangement.Center
     ) {
 
-        Row(Modifier.fillMaxWidth()) {
-            Text(text = "In this exercise, when you introduce a number the program show it the number" +
-                    " 0 until to your number",
-                modifier = Modifier.padding(5.dp))
-        }
-
-        var inputNumberA by remember { mutableStateOf("") }
-        var inputNumberB  by remember { mutableStateOf("") }
-        var inputNumberC by remember { mutableStateOf("") }
-        var resultSum by remember { mutableStateOf("") }
-        var resultAverage by remember { mutableStateOf("") }
+        var lengthOfThePiece by remember { mutableStateOf("") }
+        var quantity by remember { mutableStateOf(0) }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = inputNumberA,
-            onValueChange = { inputNumberA = it },
+            value = lengthOfThePiece,
+            onValueChange = { lengthOfThePiece = it },
             label = {
-                Text("Introduce a number: ")
+                Text("Enter the measurement of the piece  ")
             },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
             singleLine = true
         )
-        OutlinedTextField(
-            value = inputNumberB,
-            onValueChange = { inputNumberB = it },
-            label = {
-                Text("Introduce a number: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
-        OutlinedTextField(
-            value = inputNumberC,
-            onValueChange = { inputNumberC = it },
-            label = {
-                Text("Introduce a number: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
+
 
         Button(
             onClick = {
-                resultSum = (inputNumberA.toInt() +
-                        inputNumberB.toInt() + inputNumberC.toInt()).toString()
-                textResult = "The result of the sum is: $resultSum \n"
-
-                resultAverage = (resultSum.toFloat() / 3).toString()
-                textResult += "The result of the average is $resultAverage"
-
+                /*
+                --> This is the short form
+                if (lengthOfThePiece.toDouble() in 1.20..1.30) {
+                    quantity = (quantity + 1)
+                }
+                */
+                if (lengthOfThePiece.toDouble() >= 1.20 &&
+                    lengthOfThePiece.toDouble() <= 1.30) {
+                    quantity = (quantity + 1)
+                }
+                textResult = "Quantity pieces : $quantity"
+                lengthOfThePiece = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -116,7 +93,7 @@ fun Exercise33(navController: NavController) {
         }
 
         Text(
-            text = textResult,
+            text = "$textResult",
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
@@ -132,7 +109,8 @@ fun Exercise33(navController: NavController) {
             colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
 
         ) {
-            Text(text = "Previous",
+            Text(
+                text = "Previous",
                 color = Color.White
             )
         }
