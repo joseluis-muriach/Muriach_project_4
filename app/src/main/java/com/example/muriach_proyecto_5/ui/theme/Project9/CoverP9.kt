@@ -97,6 +97,32 @@ fun CoverP9(navController: NavController) {
             }
         }
 
+        Row (Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically){
+            Button(
+                onClick = { navController.navigate("Exercise35") },
+                modifier = Modifier.width(200.dp)
+                    .padding(5.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+            ) {
+                Text(text = "Exercise 35",
+                    color = Color.White
+                )
+            }
+
+            Button(
+                onClick = { navController.navigate("Exercise36") },
+                modifier = Modifier.width(200.dp)
+                    .padding(5.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+
+            ) {
+                Text(text = "Exercise 36",
+                    color = Color.White
+                )
+            }
+        }
+
         Button(
             onClick = {navController.navigate("CoverMain")},
             modifier = Modifier.align(Alignment.Start),

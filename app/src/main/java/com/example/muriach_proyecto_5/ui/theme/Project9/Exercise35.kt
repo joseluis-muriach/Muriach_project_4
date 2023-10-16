@@ -2,7 +2,6 @@ package com.example.muriach_proyecto_5.ui.theme.Project9
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -28,16 +27,15 @@ import androidx.navigation.NavController
 
 
 /*
-In this exercise, you can enter a number, if this number is between 1.20 and 1.30, the lenght
-is correct. After, the piece will save and when press the bottom 'Calculate', the program show it
-the quantity pieces is between this measures.
+In this program when you introduces a mark, the program tell how match be bigger or equal than 7
+or be smaller
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise34(navController: NavController) {
+fun Exercise35(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.4'",
+        text = "Welcome to: \n 'PROBLEM N.5'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -54,15 +52,16 @@ fun Exercise34(navController: NavController) {
         verticalArrangement = Arrangement.Center
     ) {
 
-        var lengthOfThePiece by remember { mutableStateOf("") }
-        var quantity by remember { mutableStateOf(0) }
+        var mark by remember { mutableStateOf("") }
+        var markPositive by remember { mutableStateOf(0) }
+        var markNegative by remember { mutableStateOf(0) }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = lengthOfThePiece,
-            onValueChange = { lengthOfThePiece = it },
+            value = mark,
+            onValueChange = { mark = it },
             label = {
-                Text("Enter the measurement of the piece  ")
+                Text("Enter the mark  ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -73,23 +72,19 @@ fun Exercise34(navController: NavController) {
 
         Button(
             onClick = {
-                /*
-                --> This is the short form
-                if (lengthOfThePiece.toDouble() in 1.20..1.30) {
-                    quantity = (quantity + 1)
+
+                if (mark.toDouble() >= 7) {
+                    markPositive = (markPositive + 1)
+                } else {
+                    markNegative = (markNegative + 1)
                 }
-                */
-                if (lengthOfThePiece.toDouble() >= 1.20 &&
-                    lengthOfThePiece.toDouble() <= 1.30) {
-                    quantity = (quantity + 1)
-                }
-                textResult = "Quantity pieces : $quantity"
-                lengthOfThePiece = ""
+                textResult = "Bigger or equal than 7 : $markPositive\nSmaller than 7: $markNegative"
+                mark = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Calculate")
+            Text(text = "Enter")
         }
 
         Text(
