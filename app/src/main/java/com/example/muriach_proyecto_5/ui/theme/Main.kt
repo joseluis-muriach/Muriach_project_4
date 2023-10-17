@@ -48,6 +48,7 @@ import com.example.muriach_proyecto_5.ui.theme.Project9.Exercise33
 import com.example.muriach_proyecto_5.ui.theme.Project9.Exercise34
 import com.example.muriach_proyecto_5.ui.theme.Project9.Exercise35
 import com.example.muriach_proyecto_5.ui.theme.Project9.Exercise36
+import com.example.muriach_proyecto_5.ui.theme.Project9.Exercise37
 
 /*
 In "Main" in "setContent" we must write our function so we can to run our program
@@ -113,6 +114,7 @@ class MainActivity : ComponentActivity() {
                     composable("Exercise34") { Exercise34(navController) }
                     composable("Exercise35") { Exercise35(navController) }
                     composable("Exercise36") { Exercise36(navController) }
+                    composable("Exercise37") { Exercise37(navController) }
                 }
             }
         }

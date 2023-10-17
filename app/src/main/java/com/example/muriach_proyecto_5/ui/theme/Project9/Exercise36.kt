@@ -27,8 +27,7 @@ import androidx.navigation.NavController
 
 
 /*
-In this program when you introduces a mark, the program tell how match be bigger or equal than 7
-or be smaller
+
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -71,9 +70,9 @@ fun Exercise36(navController: NavController) {
 
         Button(
             onClick = {
-                totalHeight = (totalHeight.toDouble() + height.toDouble()).toString()
-                quantity = (quantity.toInt() + 1).toString()
-                height = ""
+//                totalHeight = (totalHeight.toDouble() + height.toDouble()).toString()
+//                quantity = (quantity.toInt() + 1).toString()
+//                height = ""
 
             },
             modifier = Modifier.padding(10.dp)
