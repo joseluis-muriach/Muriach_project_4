@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -26,13 +28,14 @@ import androidx.navigation.NavController
 
 
 /*
-This program compare the lists what is the biggest
+This program when you introduces a number will tell you if it's pair or odd
 */
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise40(navController: NavController) {
+fun Exercise41(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.10'",
+        text = "Welcome to: \n 'PROBLEM N.11'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -49,39 +52,30 @@ fun Exercise40(navController: NavController) {
         verticalArrangement = Arrangement.Center
     ) {
 
-        //Tables where you can introduce numbers
-        val tableA = listOf(1, 2, 3, 14, 5, 6, 7, 8, 9, 10)
-        val tableB = listOf(1, 2, 3, 4, 59, 6, 7, 8, 9, 10)
+        var number by remember { mutableStateOf("") }
+        var pairNumber by remember { mutableStateOf(0) }
+        var oddNumber by remember { mutableStateOf(0) }
 
-        var maximumNumberListA by remember { mutableStateOf(0) }
-        var maximumNumberListB by remember { mutableStateOf(0) }
-        var textResult by remember { mutableStateOf("") }
-
-        Row(Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center) {
+        OutlinedTextField(
+            value = number,
+            onValueChange = { number = it },
+            label = {
+                Text("Enter a number ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
 
             Button(
                 onClick = {
-                    for (number in tableA){
-                        if (number > maximumNumberListA) {
-                            maximumNumberListA = number
-                        }
-                    }
-
-                    for (number in tableB) {
-                        if (number > maximumNumberListA) {
-                            maximumNumberListB = number
-                        }
-                    }
-
-                    if (maximumNumberListA > maximumNumberListB) {
-                        textResult = "The list A is bigger than B"
-                    } else if (maximumNumberListA < maximumNumberListB) {
-                        textResult = "The list B is bigger than A"
-                    } else {
-                        textResult = "The list are equals"
-                    }
+                          if ((number.toDouble() % 2).toInt() == 0) {
+                              pairNumber++
+                          } else {
+                              oddNumber++
+                          }
+                    number = ""
                 },
 
                 modifier = Modifier.padding(10.dp)
@@ -89,10 +83,10 @@ fun Exercise40(navController: NavController) {
 
                 Text(text = "Enter")
             }
-        }
 
         Text(
-            text = textResult,
+            text = "Pair number: $pairNumber\n" +
+                    "Odd number: $oddNumber",
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
