@@ -2,13 +2,13 @@ package com.example.muriach_proyecto_5.ui.theme.Project9
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -25,16 +25,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
+
 /*
-This program when introduce a salary it will tell if the salary is between 100 and 300$,
-bigger than 300 and the total salaries
+This program will add 25 times a number +11
 */
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise37(navController: NavController) {
+fun Exercise38(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.7'",
+        text = "Welcome to: \n 'PROBLEM N.8'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -51,43 +50,30 @@ fun Exercise37(navController: NavController) {
         verticalArrangement = Arrangement.Center
     ) {
 
-        var salary by remember{(mutableStateOf(""))}
-        var smallerThanThree by remember{(mutableStateOf(0))}
-        var biggerThanThree by remember {(mutableStateOf(0))}
-        var totalSalary by remember {(mutableStateOf(0.0))}
+        var number by remember{(mutableStateOf(0))}
+        var textResult by remember { mutableStateOf("") }
 
-        OutlinedTextField(
-            value = salary,
-            onValueChange = { salary = it },
-            label = {
-                Text("Enter salary  ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
+        Row(Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center) {
 
-        Button(
-            onClick = {
-                      if (salary.toDouble() >= 100 && salary.toDouble() <= 300) {
-                          smallerThanThree = (smallerThanThree + 1)
-                      } else if(salary.toDouble() > 300.0){
-                          biggerThanThree = (biggerThanThree + 1)
-                      }
-                totalSalary += salary.toDouble()
-                salary = ""
-            },
-            modifier = Modifier.padding(10.dp)
-        ) {
+            Button(
+                onClick = {
+                    for (i in 1..25) {
+                        number += 11
+                        textResult += "$number "
+                    }
+                },
 
-            Text(text = "Enter")
+                modifier = Modifier.padding(10.dp)
+            ) {
+
+                Text(text = "Enter")
+            }
         }
 
         Text(
-            text = "Between 100$ and 300$: $smallerThanThree\n" +
-                    "Bigger than 300$: $biggerThanThree\n" +
-                    "The total salary of the enterprise: $totalSalary",
+            text = textResult,
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp

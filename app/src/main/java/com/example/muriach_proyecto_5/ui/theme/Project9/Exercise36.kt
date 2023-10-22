@@ -25,9 +25,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
-
 /*
-
+In this program, when you enter multiple heights the program will show the average the heights
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -52,8 +51,8 @@ fun Exercise36(navController: NavController) {
     ) {
 
         var height by remember { mutableStateOf("") }
-        var totalHeight by remember { mutableStateOf("") }
-        var quantity by remember { mutableStateOf("") }
+        var totalHeight by remember { mutableStateOf(0.0) }
+        var quantity by remember { mutableStateOf(0) }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
@@ -70,24 +69,24 @@ fun Exercise36(navController: NavController) {
 
         Button(
             onClick = {
-//                totalHeight = (totalHeight.toDouble() + height.toDouble()).toString()
-//                quantity = (quantity.toInt() + 1).toString()
-//                height = ""
+                totalHeight += height.toDouble()
+                quantity++
+                height = ""
 
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Enter")
+            Text(text = "Enter height")
         }
         Button(
             onClick = {
-                   textResult = (totalHeight.toDouble() / quantity.toDouble()).toString()
+                   textResult = (totalHeight / quantity).toString()
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Calculate")
+            Text(text = "Calculate average")
         }
 
         Text(
