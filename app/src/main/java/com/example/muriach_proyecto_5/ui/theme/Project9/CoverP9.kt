@@ -71,6 +71,7 @@ fun CoverP9(navController: NavController) {
                 )
             }
         }
+
         Row (Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically){
             Button(
@@ -122,6 +123,7 @@ fun CoverP9(navController: NavController) {
                 )
             }
         }
+
         Row (Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically){
             Button(
@@ -143,6 +145,32 @@ fun CoverP9(navController: NavController) {
 
             ) {
                 Text(text = "Exercise 38",
+                    color = Color.White
+                )
+            }
+        }
+
+        Row (Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically){
+            Button(
+                onClick = { navController.navigate("Exercise39") },
+                modifier = Modifier.width(200.dp)
+                    .padding(5.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+            ) {
+                Text(text = "Exercise 39",
+                    color = Color.White
+                )
+            }
+
+            Button(
+                onClick = { navController.navigate("Exercise40") },
+                modifier = Modifier.width(200.dp)
+                    .padding(5.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+
+            ) {
+                Text(text = "Exercise 40",
                     color = Color.White
                 )
             }
