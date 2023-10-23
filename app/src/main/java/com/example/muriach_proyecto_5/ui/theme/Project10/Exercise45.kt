@@ -1,8 +1,7 @@
-package com.example.muriach_proyecto_5.ui.theme.Project9
+package com.example.muriach_proyecto_5.ui.theme.Project10
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -26,16 +25,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
-
 /*
-In this exercise, when we enter a number the program shows you the first numbers up to your number.
-*/
+In this program I do not do a do while because when you execute the program it repeats
+without the need for a do while
+ */
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise33(navController: NavController) {
+fun Exercise45(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.3'",
+        text = "Welcome to: \n 'PROBLEM N.4'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -47,51 +47,24 @@ fun Exercise33(navController: NavController) {
             .padding(vertical = 20.dp),
     )
 
+    var number by remember { mutableStateOf("") }
+    var result by remember { mutableStateOf(0.0) }
+    var textResult by remember { mutableStateOf("") }
+
     Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center
-    ) {
+        Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally)
+    {
 
-        Row(Modifier.fillMaxWidth()) {
-            Text(text = "In this exercise, when you introduce a number the program show it the number" +
-                    " 0 until to your number",
-                modifier = Modifier.padding(5.dp))
-        }
-
-        var inputNumberA by remember { mutableStateOf("") }
-        var inputNumberB  by remember { mutableStateOf("") }
-        var inputNumberC by remember { mutableStateOf("") }
-        var resultSum by remember { mutableStateOf("") }
-        var resultAverage by remember { mutableStateOf("") }
-        var textResult by remember { mutableStateOf("") }
+        Text(text = "In this exercise when click in bottom the program save the numbers until introduce" +
+                "the number 9999",
+            Modifier.padding(5.dp),
+            fontSize = 20.sp)
 
         OutlinedTextField(
-            value = inputNumberA,
-            onValueChange = { inputNumberA = it },
-            label = {
-                Text("Introduce a number: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
-
-        OutlinedTextField(
-            value = inputNumberB,
-            onValueChange = { inputNumberB = it },
-            label = {
-                Text("Introduce a number: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
-
-        OutlinedTextField(
-            value = inputNumberC,
-            onValueChange = { inputNumberC = it },
+            value = number,
+            onValueChange = { number = it },
             label = {
                 Text("Introduce a number: ")
             },
@@ -103,18 +76,17 @@ fun Exercise33(navController: NavController) {
 
         Button(
             onClick = {
-                resultSum = (inputNumberA.toInt() +
-                        inputNumberB.toInt() + inputNumberC.toInt()).toString()
-                textResult = "The result of the sum is: $resultSum \n"
-
-                resultAverage = (resultSum.toFloat() / 3).toString()
-                textResult += "The result of the average is $resultAverage"
-
+                      if (number.toDouble() < 9999) {
+                          result += number.toDouble()
+                          number = ""
+                      } else {
+                          textResult = "Te result is: $result"
+                      }
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Calculate")
+            Text(text = "Enter")
         }
 
         Text(
@@ -124,10 +96,9 @@ fun Exercise33(navController: NavController) {
                 fontSize = 20.sp
             )
         )
-
         //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
         Button(
-            onClick = { navController.navigate("CoverP9") },
+            onClick = {navController.navigate("CoverP10")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
@@ -140,4 +111,3 @@ fun Exercise33(navController: NavController) {
         }
     }
 }
-

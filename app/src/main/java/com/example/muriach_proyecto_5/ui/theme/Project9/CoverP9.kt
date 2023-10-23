@@ -200,11 +200,11 @@ fun CoverP9(navController: NavController) {
             Text(text = "All projects")
         }
         Button(
-            onClick = {navController.navigate("CoverP8")},
+            onClick = {navController.navigate("CoverP10")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Blue)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
 
         ) {
             Text(text = "Next project")
