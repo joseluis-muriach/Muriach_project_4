@@ -102,7 +102,7 @@ fun Exercise45(navController: NavController) {
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
 
         ) {
             Text(text = "Previous",

@@ -1,7 +1,8 @@
-package com.example.muriach_proyecto_5.ui.theme.Project10
+package com.example.muriach_proyecto_5.ui.theme.Project11
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -25,16 +26,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
+
 /*
-In this program I do not do a do while because when you execute the program it repeats
-without the need for a do while
- */
+In this exercise, when we enter a number the program shows you the first numbers up to your number.
+*/
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise46(navController: NavController) {
+fun Exercise52(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.5'",
+        text = "Welcome to: \n 'PROBLEM N.6'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -46,26 +47,26 @@ fun Exercise46(navController: NavController) {
             .padding(vertical = 20.dp),
     )
 
-    var countUser by remember { mutableStateOf("") }
-    var salary by remember { mutableStateOf("") }
-    var textResult by remember { mutableStateOf("") }
-
     Column(
-        Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally)
-    {
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center
+    ) {
 
-        Text(text = "In this exercise when click in bottom the program save the numbers until introduce" +
-                "the number 9999",
-            Modifier.padding(5.dp),
-            fontSize = 20.sp)
+        Row(Modifier.fillMaxWidth()) {
+            Text(text = "In this exercise, calculate the base and height of the rectangle and the triangle",
+                modifier = Modifier.padding(5.dp))
+        }
+
+        var triangleBase by remember { mutableStateOf("") }
+        var triangleHeight by remember { mutableStateOf("") }
+        var quantity by remember { mutableStateOf(0) }
+        var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = countUser,
-            onValueChange = { countUser = it },
+            value = triangleBase,
+            onValueChange = { triangleBase = it },
             label = {
-                Text("Introduce the count number: ")
+                Text("Introduce the base of the rectangle: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -74,10 +75,10 @@ fun Exercise46(navController: NavController) {
         )
 
         OutlinedTextField(
-            value = salary,
-            onValueChange = { salary = it },
+            value = triangleHeight,
+            onValueChange = { triangleHeight = it },
             label = {
-                Text("Introduce the salary: ")
+                Text("Introduce the height of the rectangle: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -87,36 +88,35 @@ fun Exercise46(navController: NavController) {
 
         Button(
             onClick = {
-                if (salary.toDouble() < 0) {
-                    textResult = "The count $countUser is debit balance"
-                } else if (salary.toDouble() > 0) {
-                    textResult = "The count $countUser is credit balance"
-                } else {
-                    textResult = "The count $countUser is zero balance"
+                      textResult = ((triangleBase.toDouble() * triangleHeight.toDouble()) / 2).toString()
+                if (textResult.toDouble() > 12) {
+                    quantity++
                 }
-                countUser = ""
-                salary = ""
+                triangleBase = ""
+                triangleHeight = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Enter")
+            Text(text = "Calculate")
         }
 
         Text(
-            text = textResult,
+            text = "$textResult\n" +
+                    " $quantity triangles are biggest than 12cm",
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
             )
         )
+
         //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
         Button(
             onClick = {navController.navigate("CoverP10")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
 
         ) {
             Text(text = "Previous",
@@ -125,3 +125,4 @@ fun Exercise46(navController: NavController) {
         }
     }
 }
+
