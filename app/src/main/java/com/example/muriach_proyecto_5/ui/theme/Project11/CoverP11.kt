@@ -52,10 +52,10 @@ fun CoverP11(navController: NavController) {
                 onClick = { navController.navigate("Exercise52") },
                 modifier = Modifier.width(200.dp)
                     .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
             ) {
                 Text(text = "Exercise 52",
-                    color = Color.White
+                    color = Color.Black
                 )
             }
 
@@ -63,11 +63,11 @@ fun CoverP11(navController: NavController) {
                 onClick = { navController.navigate("Exercise53") },
                 modifier = Modifier.width(200.dp)
                     .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
             ) {
                 Text(text = "Exercise 53",
-                    color = Color.White
+                    color = Color.Black
                 )
             }
         }
@@ -78,48 +78,48 @@ fun CoverP11(navController: NavController) {
                 onClick = { navController.navigate("Exercise54") },
                 modifier = Modifier.width(200.dp)
                     .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
             ) {
-                Text(text = "Exercise 55",
-                    color = Color.White
+                Text(text = "Exercise 54",
+                    color = Color.Black
                 )
             }
 
+            Button(
+                onClick = { navController.navigate("Exercise55") },
+                modifier = Modifier.width(200.dp)
+                    .padding(5.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+
+            ) {
+                Text(text = "Exercise 55",
+                    color = Color.Black
+                )
+            }
+        }
+
+        Row (Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically){
             Button(
                 onClick = { navController.navigate("Exercise56") },
                 modifier = Modifier.width(200.dp)
                     .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
-
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
             ) {
                 Text(text = "Exercise 56",
-                    color = Color.White
+                    color = Color.Black
                 )
             }
-        }
 
-        Row (Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically){
             Button(
                 onClick = { navController.navigate("Exercise57") },
                 modifier = Modifier.width(200.dp)
                     .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+
             ) {
                 Text(text = "Exercise 57",
-                    color = Color.White
-                )
-            }
-
-            Button(
-                onClick = { navController.navigate("Exercise58") },
-                modifier = Modifier.width(200.dp)
-                    .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
-
-            ) {
-                Text(text = "Exercise 58",
-                    color = Color.White
+                    color = Color.Black
                 )
             }
         }
@@ -127,13 +127,13 @@ fun CoverP11(navController: NavController) {
         Row (Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically){
             Button(
-                onClick = { navController.navigate("Exercise59") },
+                onClick = { navController.navigate("Exercise58") },
                 modifier = Modifier.width(200.dp)
                     .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
             ) {
-                Text(text = "Exercise 59",
-                    color = Color.White
+                Text(text = "Exercise 58",
+                    color = Color.Black
                 )
             }
         }
@@ -152,10 +152,11 @@ fun CoverP11(navController: NavController) {
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
 
         ) {
-            Text(text = "Next project")
+            Text(text = "Next project",
+            color = Color.Black)
         }
     }
 }

@@ -86,10 +86,11 @@ fun CoverP10(navController: NavController) {
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
-            Text(text = "Next project")
+            Text(text = "Next project",
+                color = Color.Black)
         }
     }
 }

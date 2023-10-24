@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -28,15 +27,14 @@ import androidx.navigation.NavController
 
 
 /*
-In this program you must enter a base and a height and the program calculates the area and counts
-how many triangles, the base is greater than 12
+In this exercise, the program show the multiplication table of 5.
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise52(navController: NavController) {
+fun Exercise54(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.6'",
+        text = "Welcome to: \n 'PROBLEM N.8'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -54,57 +52,32 @@ fun Exercise52(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "In this exercise, calculate the base and height of the rectangle and the triangle",
-                modifier = Modifier.padding(5.dp))
+            Text(
+                text = "We can see the multiplication table of 5",
+                modifier = Modifier.padding(5.dp),
+                fontSize = 25.sp
+            )
         }
 
-        var triangleBase by remember { mutableStateOf("") }
-        var triangleHeight by remember { mutableStateOf("") }
-        var quantity by remember { mutableStateOf(0) }
+        var number by remember { mutableStateOf(5) }
+        var result by remember { mutableStateOf(0) }
         var textResult by remember { mutableStateOf("") }
-
-        OutlinedTextField(
-            value = triangleBase,
-            onValueChange = { triangleBase = it },
-            label = {
-                Text("Introduce the base of the rectangle: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
-
-        OutlinedTextField(
-            value = triangleHeight,
-            onValueChange = { triangleHeight = it },
-            label = {
-                Text("Introduce the height of the rectangle: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
 
         Button(
             onClick = {
-                      textResult = ((triangleBase.toDouble() * triangleHeight.toDouble()) / 2).toString()
-                if (textResult.toDouble() > 12) {
-                    quantity++
-                }
-                triangleBase = ""
-                triangleHeight = ""
+                      for (i in 0..10) {
+                          result = number * i
+                          textResult += "- $number x $i = $result \n"
+                      }
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Calculate")
+            Text(text = "Show table")
         }
 
         Text(
-            text = "$textResult\n" +
-                    " $quantity triangles are biggest than 12cm",
+            text = "$textResult",
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
@@ -113,14 +86,15 @@ fun Exercise52(navController: NavController) {
 
         //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
         Button(
-            onClick = {navController.navigate("CoverP10")},
+            onClick = { navController.navigate("CoverP11") },
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
-            Text(text = "Previous",
+            Text(
+                text = "Previous",
                 color = Color.Black
             )
         }

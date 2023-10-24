@@ -28,15 +28,14 @@ import androidx.navigation.NavController
 
 
 /*
-In this program you must enter a base and a height and the program calculates the area and counts
-how many triangles, the base is greater than 12
+In this exercise, when we enter a number the program shows you the first numbers up to your number.
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise52(navController: NavController) {
+fun Exercise53(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.6'",
+        text = "Welcome to: \n 'PROBLEM N.7'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -54,32 +53,22 @@ fun Exercise52(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "In this exercise, calculate the base and height of the rectangle and the triangle",
-                modifier = Modifier.padding(5.dp))
+            Text(
+                text = "",
+                modifier = Modifier.padding(5.dp)
+            )
         }
 
-        var triangleBase by remember { mutableStateOf("") }
-        var triangleHeight by remember { mutableStateOf("") }
+        var number by remember { mutableStateOf("") }
+        var sumNumber by remember { mutableStateOf(0.0) }
         var quantity by remember { mutableStateOf(0) }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = triangleBase,
-            onValueChange = { triangleBase = it },
+            value = number,
+            onValueChange = { number = it },
             label = {
-                Text("Introduce the base of the rectangle: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
-
-        OutlinedTextField(
-            value = triangleHeight,
-            onValueChange = { triangleHeight = it },
-            label = {
-                Text("Introduce the height of the rectangle: ")
+                Text("Introduce the numbers: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -89,12 +78,16 @@ fun Exercise52(navController: NavController) {
 
         Button(
             onClick = {
-                      textResult = ((triangleBase.toDouble() * triangleHeight.toDouble()) / 2).toString()
-                if (textResult.toDouble() > 12) {
-                    quantity++
+                quantity++
+                if (quantity >= 5) {
+                    if (quantity == 10) {
+                        sumNumber += number.toDouble()
+                        textResult = "The result of your sum is: " + sumNumber.toString()
+                    } else {
+                        sumNumber += number.toDouble()
+                    }
                 }
-                triangleBase = ""
-                triangleHeight = ""
+                number = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -103,8 +96,7 @@ fun Exercise52(navController: NavController) {
         }
 
         Text(
-            text = "$textResult\n" +
-                    " $quantity triangles are biggest than 12cm",
+            text = "$textResult",
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
@@ -113,14 +105,15 @@ fun Exercise52(navController: NavController) {
 
         //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
         Button(
-            onClick = {navController.navigate("CoverP10")},
+            onClick = { navController.navigate("CoverP11") },
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
-            Text(text = "Previous",
+            Text(
+                text = "Previous",
                 color = Color.Black
             )
         }

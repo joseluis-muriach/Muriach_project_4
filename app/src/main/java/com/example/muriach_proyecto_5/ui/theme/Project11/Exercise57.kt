@@ -28,15 +28,14 @@ import androidx.navigation.NavController
 
 
 /*
-In this program you must enter a base and a height and the program calculates the area and counts
-how many triangles, the base is greater than 12
+In this exercise, when we enter three numbers, the program will tell you if they are less than 10
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise52(navController: NavController) {
+fun Exercise57(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.6'",
+        text = "Welcome to: \n 'PROBLEM N.11'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -54,20 +53,24 @@ fun Exercise52(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "In this exercise, calculate the base and height of the rectangle and the triangle",
+            Text(text = "In this exercise, when you introduce the coordinate x and y," +
+                    " the program will tell you in what quadrant is it",
                 modifier = Modifier.padding(5.dp))
         }
 
-        var triangleBase by remember { mutableStateOf("") }
-        var triangleHeight by remember { mutableStateOf("") }
-        var quantity by remember { mutableStateOf(0) }
+        var coordenateX by remember { mutableStateOf("") }
+        var coordenateY by remember { mutableStateOf("") }
+        var quantityCoordenates by remember { mutableStateOf("") }
+        var countCoordenates by remember { mutableStateOf(0) }
+        var point by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
 
+
         OutlinedTextField(
-            value = triangleBase,
-            onValueChange = { triangleBase = it },
+            value = quantityCoordenates,
+            onValueChange = { quantityCoordenates = it },
             label = {
-                Text("Introduce the base of the rectangle: ")
+                Text("Introduce the quantity of points that you want introduce: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -76,10 +79,22 @@ fun Exercise52(navController: NavController) {
         )
 
         OutlinedTextField(
-            value = triangleHeight,
-            onValueChange = { triangleHeight = it },
+            value = coordenateX,
+            onValueChange = { coordenateX = it },
             label = {
-                Text("Introduce the height of the rectangle: ")
+                Text("Introduce the first number: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = coordenateY,
+            onValueChange = { coordenateY = it },
+            label = {
+                Text("Introduce the second number: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -89,12 +104,26 @@ fun Exercise52(navController: NavController) {
 
         Button(
             onClick = {
-                      textResult = ((triangleBase.toDouble() * triangleHeight.toDouble()) / 2).toString()
-                if (textResult.toDouble() > 12) {
-                    quantity++
+                if (coordenateX.toInt() > 0 && coordenateY.toInt() > 0) {
+                    point += "- First quadrant\n"
+                    countCoordenates++
+                } else if(coordenateX.toInt() < 0 && coordenateY.toInt() > 0) {
+                    point += "- Second quadrant\n"
+                    countCoordenates++
+                    textResult += point
+                } else if(coordenateX.toInt() > 0 && coordenateY.toInt() < 0) {
+                    point += "- Third quadrant\n"
+                    countCoordenates++
+                } else {
+                    point += "- Fourth quadrant\n"
+                    countCoordenates++
                 }
-                triangleBase = ""
-                triangleHeight = ""
+
+                if (quantityCoordenates.toInt() == countCoordenates) {
+                    textResult += point
+                }
+                coordenateX = ""
+                coordenateY = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -103,8 +132,7 @@ fun Exercise52(navController: NavController) {
         }
 
         Text(
-            text = "$textResult\n" +
-                    " $quantity triangles are biggest than 12cm",
+            text = textResult,
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
@@ -113,16 +141,14 @@ fun Exercise52(navController: NavController) {
 
         //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
         Button(
-            onClick = {navController.navigate("CoverP10")},
+            onClick = {navController.navigate("CoverP8")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Blue)
 
         ) {
-            Text(text = "Previous",
-                color = Color.Black
-            )
+            Text(text = "Previous")
         }
     }
 }

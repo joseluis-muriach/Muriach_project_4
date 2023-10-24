@@ -28,15 +28,15 @@ import androidx.navigation.NavController
 
 
 /*
-In this program you must enter a base and a height and the program calculates the area and counts
-how many triangles, the base is greater than 12
+In this exercise, our program show us if the triangle is equilateral, isosceles or scalene and tell us
+how many there are
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise52(navController: NavController) {
+fun Exercise56(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.6'",
+        text = "Welcome to: \n 'PROBLEM N.10'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -54,20 +54,26 @@ fun Exercise52(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "In this exercise, calculate the base and height of the rectangle and the triangle",
-                modifier = Modifier.padding(5.dp))
+            Text(
+                text = "",
+                modifier = Modifier.padding(10.dp),
+                fontSize = 20.sp
+            )
         }
 
-        var triangleBase by remember { mutableStateOf("") }
-        var triangleHeight by remember { mutableStateOf("") }
-        var quantity by remember { mutableStateOf(0) }
+        var sideA by remember { mutableStateOf("") }
+        var sideB by remember { mutableStateOf("") }
+        var sideC by remember { mutableStateOf("") }
+        var quantityEqui by remember { mutableStateOf(0) }
+        var quantityIsos by remember { mutableStateOf(0) }
+        var quantityScale by remember { mutableStateOf(0) }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = triangleBase,
-            onValueChange = { triangleBase = it },
+            value = sideA,
+            onValueChange = { sideA = it },
             label = {
-                Text("Introduce the base of the rectangle: ")
+                Text("Introduce side 1: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -76,10 +82,22 @@ fun Exercise52(navController: NavController) {
         )
 
         OutlinedTextField(
-            value = triangleHeight,
-            onValueChange = { triangleHeight = it },
+            value = sideB,
+            onValueChange = { sideB = it },
             label = {
-                Text("Introduce the height of the rectangle: ")
+                Text("Introduce side 2: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = sideC,
+            onValueChange = { sideC = it },
+            label = {
+                Text("Introduce side 3: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -89,22 +107,32 @@ fun Exercise52(navController: NavController) {
 
         Button(
             onClick = {
-                      textResult = ((triangleBase.toDouble() * triangleHeight.toDouble()) / 2).toString()
-                if (textResult.toDouble() > 12) {
-                    quantity++
-                }
-                triangleBase = ""
-                triangleHeight = ""
+                      if (sideA.toDouble() == sideB.toDouble() && sideA.toDouble() == sideC.toDouble()){
+                          textResult = "equilateral"
+                          quantityEqui++
+                      } else if (sideA.toDouble() == sideB.toDouble() || sideA.toDouble() == sideC.toDouble()
+                          || sideB.toDouble() == sideC.toDouble()) {
+                          textResult = "isosceles"
+                          quantityIsos++
+                      } else {
+                          textResult = "scalene"
+                          quantityScale++
+                      }
+                sideA = ""
+                sideB = ""
+                sideC = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Calculate")
+            Text(text = "Show table")
         }
 
         Text(
-            text = "$textResult\n" +
-                    " $quantity triangles are biggest than 12cm",
+            text = "The triangle is: $textResult\n" +
+                    "Quantity equilateral: $quantityEqui \n" +
+                    "Quantity isosceles: $quantityIsos \n" +
+                    "Quantity scalene: $quantityScale ",
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
@@ -113,14 +141,15 @@ fun Exercise52(navController: NavController) {
 
         //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
         Button(
-            onClick = {navController.navigate("CoverP10")},
+            onClick = { navController.navigate("CoverP11") },
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
-            Text(text = "Previous",
+            Text(
+                text = "Previous",
                 color = Color.Black
             )
         }

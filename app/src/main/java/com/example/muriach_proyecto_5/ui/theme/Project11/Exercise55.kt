@@ -28,15 +28,14 @@ import androidx.navigation.NavController
 
 
 /*
-In this program you must enter a base and a height and the program calculates the area and counts
-how many triangles, the base is greater than 12
+In this exercise, the program show the multiplication table of 5.
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise52(navController: NavController) {
+fun Exercise55(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.6'",
+        text = "Welcome to: \n 'PROBLEM N.9'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -54,32 +53,23 @@ fun Exercise52(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "In this exercise, calculate the base and height of the rectangle and the triangle",
-                modifier = Modifier.padding(5.dp))
+            Text(
+                text = "We can see the multiplication table of a number that you choose",
+                modifier = Modifier.padding(10.dp),
+                fontSize = 20.sp
+            )
         }
 
-        var triangleBase by remember { mutableStateOf("") }
-        var triangleHeight by remember { mutableStateOf("") }
-        var quantity by remember { mutableStateOf(0) }
+        var limit by remember { mutableStateOf(12) }
+        var number by remember { mutableStateOf("") }
+        var result by remember { mutableStateOf(0) }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = triangleBase,
-            onValueChange = { triangleBase = it },
+            value = number,
+            onValueChange = { number = it },
             label = {
-                Text("Introduce the base of the rectangle: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
-
-        OutlinedTextField(
-            value = triangleHeight,
-            onValueChange = { triangleHeight = it },
-            label = {
-                Text("Introduce the height of the rectangle: ")
+                Text("Introduce a numbers between 1 and 10: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -89,22 +79,25 @@ fun Exercise52(navController: NavController) {
 
         Button(
             onClick = {
-                      textResult = ((triangleBase.toDouble() * triangleHeight.toDouble()) / 2).toString()
-                if (textResult.toDouble() > 12) {
-                    quantity++
+                textResult = ""
+                if (number.toInt() > 0 && number.toInt() < 11) {
+                    for (i in 0..limit) {
+                        result = number.toInt() * i
+                        textResult += "- $number x $i = $result \n"
+                    }
+                } else {
+                    textResult = "This number doesn't correct"
+                    number = ""
                 }
-                triangleBase = ""
-                triangleHeight = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Calculate")
+            Text(text = "Show table")
         }
 
         Text(
-            text = "$textResult\n" +
-                    " $quantity triangles are biggest than 12cm",
+            text = "$textResult",
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
@@ -113,14 +106,15 @@ fun Exercise52(navController: NavController) {
 
         //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
         Button(
-            onClick = {navController.navigate("CoverP10")},
+            onClick = { navController.navigate("CoverP11") },
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
-            Text(text = "Previous",
+            Text(
+                text = "Previous",
                 color = Color.Black
             )
         }
