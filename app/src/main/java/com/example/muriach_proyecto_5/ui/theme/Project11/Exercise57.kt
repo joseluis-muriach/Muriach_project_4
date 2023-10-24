@@ -114,13 +114,15 @@ fun Exercise57(navController: NavController) {
                 } else if(coordenateX.toInt() > 0 && coordenateY.toInt() < 0) {
                     point += "- Third quadrant\n"
                     countCoordenates++
-                } else {
+                } else if (coordenateX.toInt() < 0 && coordenateY.toInt() < 0) {
                     point += "- Fourth quadrant\n"
                     countCoordenates++
                 }
 
                 if (quantityCoordenates.toInt() == countCoordenates) {
                     textResult += point
+                } else {
+                    textResult = ""
                 }
                 coordenateX = ""
                 coordenateY = ""
