@@ -120,7 +120,7 @@ fun Exercise57(navController: NavController) {
                 }
 
                 if (quantityCoordenates.toInt() == countCoordenates) {
-                    textResult += point
+                    textResult = point
                 } else {
                     textResult = ""
                 }
@@ -143,14 +143,15 @@ fun Exercise57(navController: NavController) {
 
         //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
         Button(
-            onClick = {navController.navigate("CoverP8")},
+            onClick = {navController.navigate("CoverP11")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Blue)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
-            Text(text = "Previous")
+            Text(text = "Previous",
+                color = Color.Black)
         }
     }
 }
