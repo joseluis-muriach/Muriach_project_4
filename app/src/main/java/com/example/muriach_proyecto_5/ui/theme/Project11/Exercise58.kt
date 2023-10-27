@@ -28,14 +28,15 @@ import androidx.navigation.NavController
 
 
 /*
-In this exercise, when we enter three numbers, the program will tell you if they are less than 10
+In this exercise when introduce 10 numbers (of a one in a one) the program will tell you
+the quantity of negative numbers, positives, multiple of 15 and the sum of the pair numbers
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise57(navController: NavController) {
+fun Exercise58(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.11'",
+        text = "Welcome to: \n 'PROBLEM N.12'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -53,48 +54,26 @@ fun Exercise57(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "In this exercise, when you introduce the coordinate x and y," +
-                    " the program will tell you in what quadrant is it",
-                modifier = Modifier.padding(5.dp))
+            Text(
+                text = "Enter 10 numbers one at a time",
+                modifier = Modifier.padding(5.dp)
+            )
         }
 
-        var coordenateX by remember { mutableStateOf("") }
-        var coordenateY by remember { mutableStateOf("") }
-        var quantityCoordenates by remember { mutableStateOf("") }
-        var countCoordenates by remember { mutableStateOf(0) }
-        var point by remember { mutableStateOf("") }
+        var inputNumbers by remember { mutableStateOf("") }
+        var quantityNegativeValues by remember { mutableStateOf(0) }
+        var quantityPositiveNumbers by remember { mutableStateOf(0) }
+        var quantityMultFiveteenth by remember { mutableStateOf(0) }
+        var resultPairNumbers by remember { mutableStateOf(0) }
+        var quantityNumbers by remember { mutableStateOf(0) }
         var textResult by remember { mutableStateOf("") }
 
 
         OutlinedTextField(
-            value = quantityCoordenates,
-            onValueChange = { quantityCoordenates = it },
+            value = inputNumbers,
+            onValueChange = { inputNumbers = it },
             label = {
-                Text("Introduce the quantity of points that you want introduce: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
-
-        OutlinedTextField(
-            value = coordenateX,
-            onValueChange = { coordenateX = it },
-            label = {
-                Text("Introduce the first number: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
-
-        OutlinedTextField(
-            value = coordenateY,
-            onValueChange = { coordenateY = it },
-            label = {
-                Text("Introduce the second number: ")
+                Text("Introduce ten numbers ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -104,25 +83,30 @@ fun Exercise57(navController: NavController) {
 
         Button(
             onClick = {
-                if (coordenateX.toInt() > 0 && coordenateY.toInt() > 0) {
-                    point += "- First quadrant\n"
-                } else if(coordenateX.toInt() < 0 && coordenateY.toInt() > 0) {
-                    point += "- Second quadrant\n"
-                    textResult += point
-                } else if(coordenateX.toInt() > 0 && coordenateY.toInt() < 0) {
-                    point += "- Third quadrant\n"
-                } else if (coordenateX.toInt() < 0 && coordenateY.toInt() < 0) {
-                    point += "- Fourth quadrant\n"
-                }
-                countCoordenates++
-
-                if (quantityCoordenates.toInt() == countCoordenates) {
-                    textResult = point
+                if (inputNumbers.toInt() < 0) {
+                    quantityNegativeValues++
                 } else {
-                    textResult = ""
+                    quantityPositiveNumbers++
                 }
-                coordenateX = ""
-                coordenateY = ""
+                if (inputNumbers.toInt() % 15 == 0) {
+                    quantityMultFiveteenth++
+                }
+                if (inputNumbers.toInt() % 2 == 0) {
+                    resultPairNumbers += inputNumbers.toInt()
+                }
+                quantityNumbers++
+
+                if (quantityNumbers == 10) {
+                    inputNumbers = ""
+                    textResult =
+                        "Quantity negative numbers: $quantityNegativeValues\n" +
+                                "Quantity positive numbers: $quantityPositiveNumbers\n" +
+                                "Quantity multiple of 15: $quantityMultFiveteenth\n" +
+                                "Result of pair numbers sum: $resultPairNumbers"
+                } else {
+                   inputNumbers = ""
+                }
+
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -138,17 +122,19 @@ fun Exercise57(navController: NavController) {
             )
         )
 
-        //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
+        //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP11")},
+            onClick = { navController.navigate("CoverP11") },
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
-            Text(text = "Previous",
-                color = Color.Black)
+            Text(
+                text = "Previous",
+                color = Color.Black
+            )
         }
     }
 }
