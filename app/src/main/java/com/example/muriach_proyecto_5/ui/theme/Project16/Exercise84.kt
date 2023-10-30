@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project15
+package com.example.muriach_proyecto_5.ui.theme.Project16
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,14 +28,14 @@ import androidx.navigation.NavController
 
 
 /*
-This program compare two word and show us if are equals or not
+This programa return the average of three input numbers
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise77(navController: NavController) {
+fun Exercise84(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.4'",
+        text = "Welcome to: \n 'PROBLEM N.5'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -57,15 +57,17 @@ fun Exercise77(navController: NavController) {
                 modifier = Modifier.padding(5.dp))
         }
 
-        var inputStringA by remember { mutableStateOf("") }
-        var inputStringB by remember { mutableStateOf("") }
+        var inputNumberA by remember { mutableStateOf("") }
+        var inputNUmberB by remember { mutableStateOf("") }
+        var inputNUmberC by remember { mutableStateOf("") }
+        var inputNUmberD by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = inputStringA,
-            onValueChange = { inputStringA = it },
+            value = inputNumberA,
+            onValueChange = { inputNumberA = it },
             label = {
-                Text("Introduce a word: ")
+                Text("Introduce a number: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -74,10 +76,34 @@ fun Exercise77(navController: NavController) {
         )
 
         OutlinedTextField(
-            value = inputStringB,
-            onValueChange = { inputStringB = it },
+            value = inputNUmberB,
+            onValueChange = { inputNUmberB = it },
             label = {
-                Text("Introduce a word: ")
+                Text("Introduce a number: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = inputNUmberC,
+            onValueChange = { inputNUmberC = it },
+            label = {
+                Text("Introduce a number: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = inputNUmberD,
+            onValueChange = { inputNUmberD = it },
+            label = {
+                Text("Introduce a number: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -87,13 +113,20 @@ fun Exercise77(navController: NavController) {
 
         Button(
             onClick = {
-                textResult = if (compareWords(inputStringA, inputStringB)) {
-                    "The words are equals"
+                if (calculateArea(inputNumberA.toDouble(),inputNUmberB.toDouble())
+                    > calculateArea(inputNUmberC.toDouble(), inputNUmberD.toDouble()) ){
+                    textResult = "The first rectangle is biggest"
                 } else {
-                    "The words aren't equals"
+                    textResult = "The second rectangle is biggest"
+
                 }
-                inputStringA = ""
-                inputStringB = ""
+                calculateArea(inputNUmberC.toDouble(), inputNUmberD.toDouble())
+
+
+                inputNumberA = ""
+                inputNUmberB = ""
+                inputNUmberC = ""
+                inputNUmberD = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -111,25 +144,20 @@ fun Exercise77(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP15")},
+            onClick = {navController.navigate("CoverP16")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
             Text(text = "Previous",
-                color = Color.White)
+                color = Color.Black)
         }
     }
 }
 
-private fun compareWords(inputStringA: String, inputStringB: String): Boolean {
-    var equals = false
-    if (inputStringA.equals(inputStringB)) {
-        equals = true
-    }
-    return equals
+private fun calculateArea(inputNUmberA: Double, inputNUmberB: Double) : Double {
+    return (inputNUmberA * inputNUmberB)
 }
-
 

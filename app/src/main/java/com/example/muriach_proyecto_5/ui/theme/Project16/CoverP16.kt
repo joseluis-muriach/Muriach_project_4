@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project15
+package com.example.muriach_proyecto_5.ui.theme.Project16
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -24,7 +24,7 @@ import androidx.navigation.NavController
 import com.example.muriach_proyecto_5.R
 
 @Composable
-fun CoverP15(navController: NavController) {
+fun CoverP16(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -40,7 +40,7 @@ fun CoverP15(navController: NavController) {
         )
 
         Text(
-            text = "Exercises Project 15",
+            text = "Exercises Project 16",
             fontSize = 40.sp
         )
         Spacer(modifier = Modifier.size(30.dp))
@@ -49,24 +49,39 @@ fun CoverP15(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center){
             Button(
-                onClick = { navController.navigate("Exercise77") },
+                onClick = { navController.navigate("Exercise82") },
                 modifier = Modifier.width(200.dp)
                     .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
             ) {
-                Text(text = "Exercise 77",
-                    color = Color.White
+                Text(text = "Exercise 82",
+                    color = Color.Black
                 )
             }
 
             Button(
-                onClick = { navController.navigate("Exercise78") },
+                onClick = { navController.navigate("Exercise83") },
                 modifier = Modifier.width(200.dp)
                     .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
             ) {
-                Text(text = "Exercise 78",
-                    color = Color.White
+                Text(text = "Exercise 83",
+                    color = Color.Black
+                )
+            }
+        }
+
+        Row (Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center){
+            Button(
+                onClick = { navController.navigate("Exercise84") },
+                modifier = Modifier.width(200.dp)
+                    .padding(5.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+            ) {
+                Text(text = "Exercise 84",
+                    color = Color.Black
                 )
             }
         }
@@ -82,11 +97,11 @@ fun CoverP15(navController: NavController) {
             Text(text = "All projects")
         }
         Button(
-            onClick = {navController.navigate("CoverP16")},
+            onClick = {navController.navigate("CoverP17")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
 
         ) {
             Text(text = "Next project",

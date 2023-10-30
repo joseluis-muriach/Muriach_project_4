@@ -28,7 +28,7 @@ import androidx.navigation.NavController
 
 
 /*
-
+This program order three number from greatest to least
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -122,11 +122,11 @@ fun Exercise78(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP14")},
+            onClick = {navController.navigate("CoverP15")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
 
         ) {
             Text(text = "Previous",
@@ -136,23 +136,27 @@ fun Exercise78(navController: NavController) {
 }
 
 private fun compareNumber(inputNUmberA: Double, inputNUmberB: Double, inputNUmberC: Double) : String {
-    var textResult = ""
+    var textResult: String
 
     if (inputNUmberA < inputNUmberB) {
         if (inputNUmberA < inputNUmberC) {
             if (inputNUmberB < inputNUmberC) {
-                textResult = "$inputNUmberA $inputNUmberB $inputNUmberC"
+                textResult = "$inputNUmberA, $inputNUmberB, $inputNUmberC"
             } else {
-                textResult = "$inputNUmberA $inputNUmberC $inputNUmberB"
+                textResult = "$inputNUmberA, $inputNUmberC, $inputNUmberB"
             }
         } else {
-            textResult = "$inputNUmberC $inputNUmberA $inputNUmberB"
+            textResult = "$inputNUmberC, $inputNUmberA, $inputNUmberB"
         }
     } else if (inputNUmberB < inputNUmberC) {
         if (inputNUmberC < inputNUmberA) {
-            textResult = "$inputNUmberB $"
+            textResult = "$inputNUmberB, $inputNUmberC, $inputNUmberA"
+        } else {
+            textResult = "$inputNUmberB, $inputNUmberA, $inputNUmberC"
         }
+    } else {
+        textResult = "$inputNUmberC, $inputNUmberB, $inputNUmberA"
     }
-    return textResult
+    return "Ordered numbers $textResult"
 }
 
