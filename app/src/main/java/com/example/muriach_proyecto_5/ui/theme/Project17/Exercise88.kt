@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project16
+package com.example.muriach_proyecto_5.ui.theme.Project17
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,12 +28,12 @@ import androidx.navigation.NavController
 
 
 /*
-This program calculate the perimeter of a square
+This programa return the average of three input numbers
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise83(navController: NavController) {
+fun Exercise88(navController: NavController) {
     Text(
         text = "Welcome to: \n 'PROBLEM N.4'",
         textAlign = TextAlign.Center,
@@ -58,13 +58,39 @@ fun Exercise83(navController: NavController) {
         }
 
         var inputNumberA by remember { mutableStateOf("") }
+        var inputNUmberB by remember { mutableStateOf("") }
+        var inputNumberC by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
             value = inputNumberA,
             onValueChange = { inputNumberA = it },
             label = {
-                Text("Introduce the side of a square: ")
+                Text("Introduce a number: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = inputNUmberB,
+            onValueChange = { inputNUmberB = it },
+            label = {
+                Text("Introduce a number: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = inputNumberC,
+            onValueChange = { inputNumberC = it },
+            label = {
+                Text("Introduce a number: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -74,8 +100,11 @@ fun Exercise83(navController: NavController) {
 
         Button(
             onClick = {
-                textResult = perimeterCalculator(inputNumberA.toDouble())
+                textResult = calculateAverage(inputNumberA.toDouble(),inputNUmberB.toDouble(),
+                    inputNumberC.toDouble())
                 inputNumberA = ""
+                inputNUmberB = ""
+                inputNumberC = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -93,11 +122,11 @@ fun Exercise83(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP16")},
+            onClick = {navController.navigate("CoverP17")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
 
         ) {
             Text(text = "Previous",
@@ -106,7 +135,7 @@ fun Exercise83(navController: NavController) {
     }
 }
 
-private fun perimeterCalculator(inputNUmberA: Double) : String {
-    return "The perimeter of this square is: " + (inputNUmberA * 4).toString()
+private fun calculateAverage(inputNUmberA: Double, inputNUmberB: Double, inputNUmberC: Double) : String {
+    return ((inputNUmberA + inputNUmberB + inputNUmberC) / 3).toString()
 }
 

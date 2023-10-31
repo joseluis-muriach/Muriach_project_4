@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project16
+package com.example.muriach_proyecto_5.ui.theme.Project19
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,16 +26,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
-
 /*
-This program calculate the perimeter of a square
+This programa return the word that had more letters
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise83(navController: NavController) {
+fun Exercise95(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.4'",
+        text = "Welcome to: \n 'PROBLEM N.2'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -57,14 +56,27 @@ fun Exercise83(navController: NavController) {
                 modifier = Modifier.padding(5.dp))
         }
 
-        var inputNumberA by remember { mutableStateOf("") }
+        var inputNum by remember { mutableStateOf("") }
+        var term by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = inputNumberA,
-            onValueChange = { inputNumberA = it },
+            value = inputNum,
+            onValueChange = { inputNum = it },
             label = {
-                Text("Introduce the side of a square: ")
+                Text("Introduce a number: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = term,
+            onValueChange = { term = it },
+            label = {
+                Text("Introduce a term: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -74,8 +86,7 @@ fun Exercise83(navController: NavController) {
 
         Button(
             onClick = {
-                textResult = perimeterCalculator(inputNumberA.toDouble())
-                inputNumberA = ""
+                      textResult = table(inputNum.toInt(),term.toInt()).toString()
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -93,11 +104,11 @@ fun Exercise83(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP16")},
+            onClick = {navController.navigate("CoverP19")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
 
         ) {
             Text(text = "Previous",
@@ -106,7 +117,10 @@ fun Exercise83(navController: NavController) {
     }
 }
 
-private fun perimeterCalculator(inputNUmberA: Double) : String {
-    return "The perimeter of this square is: " + (inputNUmberA * 4).toString()
+fun table(num: Int, terms: Int): String{
+    var result = ""
+    for (i in 0..terms) {
+        result += "- $num x $i = " + (i * num).toString() + "\n"
+    }
+    return result
 }
-

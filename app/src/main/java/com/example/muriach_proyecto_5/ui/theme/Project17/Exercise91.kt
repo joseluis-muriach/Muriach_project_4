@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project16
+package com.example.muriach_proyecto_5.ui.theme.Project17
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,14 +28,14 @@ import androidx.navigation.NavController
 
 
 /*
-This program calculate the perimeter of a square
+This programa return the word that had more letters
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise83(navController: NavController) {
+fun Exercise91(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.4'",
+        text = "Welcome to: \n 'PROBLEM N.7'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -57,14 +57,27 @@ fun Exercise83(navController: NavController) {
                 modifier = Modifier.padding(5.dp))
         }
 
-        var inputNumberA by remember { mutableStateOf("") }
+        var inputWordA by remember { mutableStateOf("") }
+        var inputWordB by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = inputNumberA,
-            onValueChange = { inputNumberA = it },
+            value = inputWordA,
+            onValueChange = { inputWordA = it },
             label = {
-                Text("Introduce the side of a square: ")
+                Text("Introduce a word: ")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = inputWordB,
+            onValueChange = { inputWordB = it },
+            label = {
+                Text("Introduce a word: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -74,8 +87,13 @@ fun Exercise83(navController: NavController) {
 
         Button(
             onClick = {
-                textResult = perimeterCalculator(inputNumberA.toDouble())
-                inputNumberA = ""
+                      if (lengthWord(inputWordA) > lengthWord(inputWordB)) {
+                          textResult = "The first word is bigger than second"
+                      } else {
+                          textResult = "The second word is bigger than fist"
+                      }
+                inputWordA = ""
+                inputWordB = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -93,11 +111,11 @@ fun Exercise83(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP16")},
+            onClick = {navController.navigate("CoverP17")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
 
         ) {
             Text(text = "Previous",
@@ -106,7 +124,6 @@ fun Exercise83(navController: NavController) {
     }
 }
 
-private fun perimeterCalculator(inputNUmberA: Double) : String {
-    return "The perimeter of this square is: " + (inputNUmberA * 4).toString()
+fun lengthWord(word: String): Int {
+    return word.length
 }
-

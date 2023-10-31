@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project16
+package com.example.muriach_proyecto_5.ui.theme.Project17
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -33,9 +33,9 @@ This program calculate the perimeter of a square
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise83(navController: NavController) {
+fun Exercise89(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.4'",
+        text = "Welcome to: \n 'PROBLEM N.5'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -93,11 +93,11 @@ fun Exercise83(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP16")},
+            onClick = {navController.navigate("CoverP17")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
 
         ) {
             Text(text = "Previous",

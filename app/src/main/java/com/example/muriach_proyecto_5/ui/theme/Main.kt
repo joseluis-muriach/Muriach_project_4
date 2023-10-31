@@ -52,6 +52,15 @@ import com.example.muriach_proyecto_5.ui.theme.Project16.CoverP16
 import com.example.muriach_proyecto_5.ui.theme.Project16.Exercise82
 import com.example.muriach_proyecto_5.ui.theme.Project16.Exercise83
 import com.example.muriach_proyecto_5.ui.theme.Project16.Exercise84
+import com.example.muriach_proyecto_5.ui.theme.Project17.CoverP17
+import com.example.muriach_proyecto_5.ui.theme.Project17.Exercise88
+import com.example.muriach_proyecto_5.ui.theme.Project17.Exercise89
+import com.example.muriach_proyecto_5.ui.theme.Project17.Exercise90
+import com.example.muriach_proyecto_5.ui.theme.Project17.Exercise91
+import com.example.muriach_proyecto_5.ui.theme.Project18.CoverP18
+import com.example.muriach_proyecto_5.ui.theme.Project18.Exercise93
+import com.example.muriach_proyecto_5.ui.theme.Project19.CoverP19
+import com.example.muriach_proyecto_5.ui.theme.Project19.Exercise95
 import com.example.muriach_proyecto_5.ui.theme.Project4.Exercise5
 import com.example.muriach_proyecto_5.ui.theme.Project4.Exercise6
 import com.example.muriach_proyecto_5.ui.theme.Project4.Exercise7
@@ -191,6 +200,23 @@ class MainActivity : ComponentActivity() {
                     composable("Exercise82") { Exercise82(navController) }
                     composable("Exercise83") { Exercise83(navController) }
                     composable("Exercise84") { Exercise84(navController) }
+
+
+                    //Project17
+                    composable("CoverP17") { CoverP17(navController) }
+                    composable("Exercise88") { Exercise88(navController) }
+                    composable("Exercise89") { Exercise89(navController) }
+                    composable("Exercise90") { Exercise90(navController) }
+                    composable("Exercise91") { Exercise91(navController) }
+
+                    //Project18
+                    composable("CoverP18") { CoverP18(navController) }
+                    composable("Exercise93") { Exercise93(navController) }
+
+                    //Project19
+                    composable("CoverP19") { CoverP19(navController) }
+                    composable("Exercise95") { Exercise95(navController) }
+
                 }
             }
         }
