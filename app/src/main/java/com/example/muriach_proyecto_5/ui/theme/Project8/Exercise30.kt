@@ -109,8 +109,8 @@ fun Exercise30(navController: NavController) {
                 if (numbers.size == 3) {
                     val maxNumber = numbers.maxOrNull()
                     val minNumber = numbers.minOrNull()
-                    textResult = "El número más grande es: $maxNumber\n" +
-                            "El número más pequeño es: $minNumber"
+                    textResult = "The greatest number is: $maxNumber\n" +
+                            "The smallest number is: $minNumber"
                 } else {
                     textResult = "Por favor, ingrese tres números válidos."
                 }

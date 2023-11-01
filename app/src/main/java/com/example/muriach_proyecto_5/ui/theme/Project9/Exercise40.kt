@@ -48,6 +48,11 @@ fun Exercise40(navController: NavController) {
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center
     ) {
+        Row(Modifier.fillMaxWidth()) {
+            Text(text = "There are two lists in the code, this program compare those and tell you " +
+                    "what is the biggest",
+                modifier = Modifier.padding(5.dp))
+        }
 
         //Tables where you can introduce numbers
         val tableA = listOf(1, 2, 3, 14, 5, 6, 7, 8, 9, 10)

@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 /*
-In this program I do not do a do while because when you execute the program it repeats
+In this program I don't do a do while because when you execute the program it repeats
 without the need for a do while
  */
 
@@ -56,8 +56,8 @@ fun Exercise46(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally)
     {
 
-        Text(text = "In this exercise when click in bottom the program save the numbers until introduce" +
-                "the number 9999",
+        Text(text = "In this program when you introduce de count number and the salary, the program" +
+                "tell you if be creditor, debtor or null",
             Modifier.padding(5.dp),
             fontSize = 20.sp)
 

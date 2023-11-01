@@ -28,7 +28,7 @@ import androidx.navigation.NavController
 
 
 /*
-In this exercise, when we enter a number the program shows you the first numbers up to your number.
+In this exercise, when we enter a number the program show the result sum and your average.
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -53,8 +53,7 @@ fun Exercise33(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "In this exercise, when you introduce a number the program show it the number" +
-                    " 0 until to your number",
+            Text(text = "When introduce three numbers, the program return your sum and average",
                 modifier = Modifier.padding(5.dp))
         }
 

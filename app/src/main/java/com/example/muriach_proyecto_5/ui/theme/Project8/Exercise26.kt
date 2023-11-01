@@ -54,7 +54,7 @@ fun Exercise26(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "Enter a date and the program will ell you if is christmas",
+            Text(text = "If the numbers are equals, it will calculate de the cube",
                 modifier = Modifier.padding(5.dp))
 
         }

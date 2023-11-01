@@ -54,7 +54,7 @@ fun Exercise25(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "Enter a date and the program will ell you if is christmas",
+            Text(text = "Enter a date and the program will tell you if is christmas",
                 modifier = Modifier.padding(5.dp))
 
         }

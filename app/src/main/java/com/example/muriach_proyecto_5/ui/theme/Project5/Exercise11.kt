@@ -77,9 +77,9 @@ fun Exercise11(navController: NavController) {
 
         Button(onClick = {
             if (firstNumber.toDouble() > secondNumber.toDouble()) {
-                result = "The first number is biggest than second"
+                result = "The first number is greater than second"
             } else if (firstNumber.toDouble() < secondNumber.toDouble()){
-                result = "The second number is biggest than first"
+                result = "The second number is greater than first"
             } else {
                 result = "The numbers are equals"
             }
