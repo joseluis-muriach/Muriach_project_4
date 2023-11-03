@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project19
+package com.example.muriach_proyecto_5.ui.theme.Project20
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,13 +27,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 /*
-This programa return the multiply table of the number that you want until the number that you want.
-For example: Table of number 3 until 15 number
+This program return the biggest number
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise95(navController: NavController) {
+fun Exercise97(navController: NavController) {
     Text(
         text = "Welcome to: \n 'PROBLEM N.2'",
         textAlign = TextAlign.Center,
@@ -53,17 +52,17 @@ fun Exercise95(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "",
+            Text(text = "This program, when you introduce two numbers, it tell us what is the biggest",
                 modifier = Modifier.padding(5.dp))
         }
 
-        var inputNum by remember { mutableStateOf("") }
-        var term by remember { mutableStateOf("") }
+        var inputNumA by remember { mutableStateOf("") }
+        var inputNumB by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = inputNum,
-            onValueChange = { inputNum = it },
+            value = inputNumA,
+            onValueChange = { inputNumA = it },
             label = {
                 Text("Introduce a number: ")
             },
@@ -74,8 +73,8 @@ fun Exercise95(navController: NavController) {
         )
 
         OutlinedTextField(
-            value = term,
-            onValueChange = { term = it },
+            value = inputNumB,
+            onValueChange = { inputNumB = it },
             label = {
                 Text("Introduce a term: ")
             },
@@ -87,7 +86,9 @@ fun Exercise95(navController: NavController) {
 
         Button(
             onClick = {
-                      textResult = table(inputNum.toInt(),term.toInt()).toString()
+                      textResult = compareNum(inputNumA.toDouble(), inputNumB.toDouble())
+                inputNumA = ""
+                inputNumB = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -118,10 +119,12 @@ fun Exercise95(navController: NavController) {
     }
 }
 
-fun table(num: Int, terms: Int): String{
+fun compareNum(numA: Double, numB: Double): String{
     var result = ""
-    for (i in 0..terms) {
-        result += "- $num x $i = " + (i * num).toString() + "\n"
+    if (numA > numB) {
+        result = "The first number is biggest"
+    } else {
+        result = "The second number is biggest"
     }
     return result
 }

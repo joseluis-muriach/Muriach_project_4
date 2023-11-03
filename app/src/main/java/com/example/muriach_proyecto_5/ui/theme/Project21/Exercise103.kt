@@ -1,5 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project19
-
+package com.example.muriach_proyecto_5.ui.theme.Project21
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,15 +26,17 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 /*
-This programa return the multiply table of the number that you want until the number that you want.
-For example: Table of number 3 until 15 number
+This program return several things:
+1: The accumulated value of all numbers
+2: The sum of values bigger than 36
+3: How many numbers there are bigger than 50
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise95(navController: NavController) {
+fun Exercise103(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.2'",
+        text = "Welcome to: \n 'PROBLEM N.6'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -57,13 +58,17 @@ fun Exercise95(navController: NavController) {
                 modifier = Modifier.padding(5.dp))
         }
 
-        var inputNum by remember { mutableStateOf("") }
-        var term by remember { mutableStateOf("") }
+        val quantityNumbers by remember { mutableStateOf(8) }
+        var countNumbers by remember { mutableStateOf(0) }
+        var inputNumA by remember { mutableStateOf("") }
+        var sumNumbers by remember { mutableStateOf(0) }
+        var biggerTheTrirtySixSum by remember { mutableStateOf(0) }
+        var quantityValuesBiggerThanFifty by remember { mutableStateOf(0) }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = inputNum,
-            onValueChange = { inputNum = it },
+            value = inputNumA,
+            onValueChange = { inputNumA = it },
             label = {
                 Text("Introduce a number: ")
             },
@@ -73,26 +78,29 @@ fun Exercise95(navController: NavController) {
             singleLine = true
         )
 
-        OutlinedTextField(
-            value = term,
-            onValueChange = { term = it },
-            label = {
-                Text("Introduce a term: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
-
         Button(
             onClick = {
-                      textResult = table(inputNum.toInt(),term.toInt()).toString()
+                    sumNumbers += inputNumA.toInt()
+                    if (inputNumA.toInt() >= 36) {
+                        biggerTheTrirtySixSum =+ inputNumA.toInt()
+                    }
+                    if (inputNumA.toInt() >= 50) {
+                        quantityValuesBiggerThanFifty++
+                    }
+
+                countNumbers++
+
+                if (quantityNumbers == countNumbers) {
+                    textResult = "Accumulated value: $sumNumbers\n" +
+                            "Accumulated value bigger tha 36: $biggerTheTrirtySixSum\n" +
+                            "Quantity values bigger than 50: $quantityValuesBiggerThanFifty"
+                }
+                inputNumA = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Calculate")
+                Text(text = "Check")
         }
 
         Text(
@@ -105,23 +113,16 @@ fun Exercise95(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP19")},
+            onClick = {navController.navigate("CoverP21")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
             Text(text = "Previous",
-                color = Color.White)
+                color = Color.Black)
         }
     }
 }
 
-fun table(num: Int, terms: Int): String{
-    var result = ""
-    for (i in 0..terms) {
-        result += "- $num x $i = " + (i * num).toString() + "\n"
-    }
-    return result
-}

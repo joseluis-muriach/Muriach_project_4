@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project19
+package com.example.muriach_proyecto_5.ui.theme.Project21
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,17 +25,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.muriach_proyecto_5.ui.theme.Project18.sum
 
 /*
-This programa return the multiply table of the number that you want until the number that you want.
-For example: Table of number 3 until 15 number
+This program return four sums of input number a and b
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise95(navController: NavController) {
+fun Exercise104(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.2'",
+        text = "Welcome to: \n 'PROBLEM N.7'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -53,17 +53,19 @@ fun Exercise95(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "",
+            Text(text = "When you introduce 4 sums, the program return the results",
                 modifier = Modifier.padding(5.dp))
         }
 
-        var inputNum by remember { mutableStateOf("") }
-        var term by remember { mutableStateOf("") }
+        var inputNumA by remember { mutableStateOf("") }
+        var inputNumB by remember { mutableStateOf("") }
+        var countNums by remember { mutableStateOf(0) }
+        var resultNums by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = inputNum,
-            onValueChange = { inputNum = it },
+            value = inputNumA,
+            onValueChange = { inputNumA = it },
             label = {
                 Text("Introduce a number: ")
             },
@@ -74,10 +76,10 @@ fun Exercise95(navController: NavController) {
         )
 
         OutlinedTextField(
-            value = term,
-            onValueChange = { term = it },
+            value = inputNumB,
+            onValueChange = { inputNumB = it },
             label = {
-                Text("Introduce a term: ")
+                Text("Introduce a number: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -87,12 +89,18 @@ fun Exercise95(navController: NavController) {
 
         Button(
             onClick = {
-                      textResult = table(inputNum.toInt(),term.toInt()).toString()
+                 resultNums = resultNums + sumNumbers(inputNumA.toInt(), inputNumB.toInt()) + "\n"
+                countNums++
+                if (countNums == 4) {
+                    textResult = resultNums
+                }
+                inputNumA = ""
+                inputNumB = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Calculate")
+            Text(text = "Check")
         }
 
         Text(
@@ -105,23 +113,20 @@ fun Exercise95(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP19")},
+            onClick = {navController.navigate("CoverP21")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
             Text(text = "Previous",
-                color = Color.White)
+                color = Color.Black)
         }
     }
 }
 
-fun table(num: Int, terms: Int): String{
-    var result = ""
-    for (i in 0..terms) {
-        result += "- $num x $i = " + (i * num).toString() + "\n"
-    }
-    return result
+fun sumNumbers(numA: Int, numB: Int): Int {
+    return numA + numB
 }
+

@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project19
+package com.example.muriach_proyecto_5.ui.theme.Project20
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -24,7 +24,7 @@ import androidx.navigation.NavController
 import com.example.muriach_proyecto_5.R
 
 @Composable
-fun CoverP19(navController: NavController) {
+fun CoverP20(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -40,7 +40,7 @@ fun CoverP19(navController: NavController) {
         )
 
         Text(
-            text = "Exercises Project 19",
+            text = "Exercises Project 20",
             fontSize = 40.sp
         )
         Spacer(modifier = Modifier.size(30.dp))
@@ -49,12 +49,12 @@ fun CoverP19(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center){
             Button(
-                onClick = { navController.navigate("Exercise95") },
+                onClick = { navController.navigate("Exercise97") },
                 modifier = Modifier.width(200.dp)
                     .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
             ) {
-                Text(text = "Exercise 95",
+                Text(text = "Exercise 97",
                     color = Color.White
                 )
             }
@@ -70,15 +70,15 @@ fun CoverP19(navController: NavController) {
             Text(text = "All projects")
         }
         Button(
-            onClick = {navController.navigate("CoverP20")},
+            onClick = {navController.navigate("CoverP21")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
             Text(text = "Next project",
-                color = Color.White)
+                color = Color.Black)
         }
     }
 }
