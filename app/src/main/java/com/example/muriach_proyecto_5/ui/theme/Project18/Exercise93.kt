@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 /*
-This programa return the word that had more letters
+In this program you can introduce 2 to 5 numbers and the program return the sum
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -149,11 +149,11 @@ fun Exercise93(navController: NavController) {
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Blue)
 
         ) {
             Text(text = "Previous",
-                color = Color.Black)
+                color = Color.White)
         }
     }
 }

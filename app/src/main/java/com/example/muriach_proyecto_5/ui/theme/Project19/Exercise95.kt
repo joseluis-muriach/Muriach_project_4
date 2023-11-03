@@ -27,7 +27,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 /*
-This programa return the word that had more letters
+This programa return the multiply table of the number that you want until the number that you want.
+For example: Table of number 3 until 15 number
 */
 
 @OptIn(ExperimentalMaterial3Api::class)

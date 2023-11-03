@@ -74,11 +74,11 @@ fun CoverP18(navController: NavController) {
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
 
         ) {
             Text(text = "Next project",
-                color = Color.Black)
+                color = Color.White)
         }
     }
 }

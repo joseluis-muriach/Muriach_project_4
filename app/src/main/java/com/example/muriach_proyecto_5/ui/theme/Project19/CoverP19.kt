@@ -40,7 +40,7 @@ fun CoverP19(navController: NavController) {
         )
 
         Text(
-            text = "Exercises Project 18",
+            text = "Exercises Project 19",
             fontSize = 40.sp
         )
         Spacer(modifier = Modifier.size(30.dp))
