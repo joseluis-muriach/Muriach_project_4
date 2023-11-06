@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project21
+package com.example.muriach_proyecto_5.ui.theme.Project22
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,14 +28,14 @@ import androidx.navigation.NavController
 import com.example.muriach_proyecto_5.ui.theme.Project18.sum
 
 /*
-This program return four sums of input number a and b
+This program return the sum of numbers of an array
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise104(navController: NavController) {
+fun Exercise107(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.7'",
+        text = "Welcome to: \n 'PROBLEM N.3'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -53,23 +53,22 @@ fun Exercise104(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "When you introduce 4 sums, the program return the results",
+            Text(text = "Enter the quantity of the numbers that you want introduce and after " +
+                    "introduce the numbers of one a time",
                 modifier = Modifier.padding(5.dp))
         }
 
-        var inputNumA by remember { mutableStateOf("") }
-        var inputNumB by remember { mutableStateOf("") }
+        var quantityNUmbers by remember { mutableStateOf("") }
+        var numbers by remember { mutableStateOf("") }
         var countNums by remember { mutableStateOf(0) }
-        var countResult by remember { mutableStateOf(1) }
-        var resultNums by remember { mutableStateOf("") }
-        var tempResult by remember { mutableStateOf("") }
+        var resultNums by remember { mutableStateOf(0.0) }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = inputNumA,
-            onValueChange = { inputNumA = it },
+            value = quantityNUmbers,
+            onValueChange = { quantityNUmbers = it },
             label = {
-                Text("Introduce a number: ")
+                Text("Enter the quantity of numbers:")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -78,10 +77,10 @@ fun Exercise104(navController: NavController) {
         )
 
         OutlinedTextField(
-            value = inputNumB,
-            onValueChange = { inputNumB = it },
+            value = numbers,
+            onValueChange = { numbers = it },
             label = {
-                Text("Introduce a number: ")
+                Text("Introduce numbers one at a time : ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -91,16 +90,12 @@ fun Exercise104(navController: NavController) {
 
         Button(
             onClick = {
-                tempResult = "- Result $countResult: " + sumNumbers(inputNumA.toInt(), inputNumB.toInt())
-                 resultNums = resultNums + tempResult + "\n"
+                      resultNums += resultSum(numbers.toDouble())
                 countNums++
-                if (countNums == 4) {
-                    textResult = resultNums
+                if (countNums == quantityNUmbers.toInt()) {
+                    textResult = "The result of the array sum" + returnResult(resultNums.toString())
                 }
-                inputNumA = ""
-                inputNumB = ""
-                tempResult = ""
-                countResult++
+                numbers = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -118,20 +113,25 @@ fun Exercise104(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP21")},
+            onClick = {navController.navigate("CoverP22")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Blue)
 
         ) {
             Text(text = "Previous",
-                color = Color.Black)
+                color = Color.White
+            )
         }
     }
 }
 
-fun sumNumbers(numA: Int, numB: Int): Int {
-    return numA + numB
+fun resultSum(number: Double): Double {
+    var result = number
+    return result
 }
 
+fun returnResult(result: String): String{
+    return result
+}

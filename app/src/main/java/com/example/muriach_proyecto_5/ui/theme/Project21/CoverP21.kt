@@ -82,7 +82,7 @@ fun CoverP21(navController: NavController) {
             Text(text = "All projects")
         }
         Button(
-            onClick = {navController.navigate("CoverP21")},
+            onClick = {navController.navigate("CoverP22")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
