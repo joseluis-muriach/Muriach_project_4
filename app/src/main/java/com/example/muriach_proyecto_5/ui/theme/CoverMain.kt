@@ -173,5 +173,44 @@ fun CoverMain(navController: NavController){
                 Text(text = "P22")
             }
         }
+
+        Row(Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center) {
+            Button(
+                onClick = {navController.navigate("CoverP23")},
+                modifier = Modifier.padding(2.dp),
+
+            ) {
+                Text(text = "P23")
+            }
+
+            Button(
+                onClick = {navController.navigate("CoverP24")},
+                modifier = Modifier.padding(2.dp)
+            ) {
+                Text(text = "P24")
+            }
+
+            Button(
+                onClick = {navController.navigate("CoverP25")},
+                modifier = Modifier.padding(2.dp)
+            ) {
+                Text(text = "P25")
+            }
+
+            Button(
+                onClick = {navController.navigate("CoverP26")},
+                modifier = Modifier.padding(2.dp)
+            ) {
+                Text(text = "P26")
+            }
+
+            Button(
+                onClick = {navController.navigate("CoverP27")},
+                modifier = Modifier.padding(2.dp)
+            ) {
+                Text(text = "P27")
+            }
+        }
     }
 }

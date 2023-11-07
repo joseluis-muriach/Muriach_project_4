@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project22
+package com.example.muriach_proyecto_5.ui.theme.Project24
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,14 +25,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.muriach_proyecto_5.ui.theme.Project23.Student
 
 /*
-This program return the sum of numbers of an array
+This exercise is equal at exercise number 111.
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise108(navController: NavController) {
+fun Exercise115(navController: NavController) {
     Text(
         text = "Welcome to: \n 'PROBLEM N.4'",
         textAlign = TextAlign.Center,
@@ -52,20 +53,33 @@ fun Exercise108(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "Enter the quantity of the numbers that you want introduce and after " +
-                    "introduce the numbers of one a time",
+            Text(text = "",
                 modifier = Modifier.padding(5.dp))
         }
-
-        var inputArrayNum by remember { mutableStateOf("") }
-        var numbers by remember { mutableStateOf(emptyList<Int>()) }
+        var inputName by remember { mutableStateOf("") }
+        var inputMark by remember { mutableStateOf("") }
+        val maxNumStudent by remember { mutableStateOf(2) }
+        var countStudents by remember { mutableStateOf(0) }
+        var totalStudents by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = inputArrayNum,
-            onValueChange = { inputArrayNum = it },
+            value = inputName,
+            onValueChange = { inputName = it },
             label = {
-                Text("Enter the quantity of numbers:")
+                Text("Enter the student name:")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
+
+        OutlinedTextField(
+            value = inputMark,
+            onValueChange = { inputMark = it },
+            label = {
+                Text("Enter the student mark:")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -75,23 +89,26 @@ fun Exercise108(navController: NavController) {
 
         Button(
             onClick = {
-                val input = inputArrayNum
-                val inputNumbers = input.split(",").mapNotNull { it.toIntOrNull() }
-                numbers = inputNumbers
-                inputArrayNum = ""
+                val student = Student(inputName, inputMark.toDouble())
+                totalStudents += " $student\n"
+                val isRegul = student.showRegular()
+                totalStudents += "$isRegul\n\n"
+                countStudents++
+
+                if (countStudents == maxNumStudent) {
+                    textResult = "$totalStudents\n"
+                }
+                inputName = ""
+                inputMark = ""
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Load array")
+            Text(text = "Load")
         }
 
-        if (numbers.isNotEmpty()) {
-            FindMinAndCheckRepetition(arrayNumbers = numbers)
-            }
-
         Text(
-            text = textResult,
+            text =textResult,
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
@@ -100,11 +117,11 @@ fun Exercise108(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP22")},
+            onClick = {navController.navigate("CoverP24")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Blue)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
 
         ) {
             Text(text = "Previous",
@@ -114,23 +131,3 @@ fun Exercise108(navController: NavController) {
     }
 }
 
-@Composable
-fun FindMinAndCheckRepetition(arrayNumbers: List<Int>) {
-    var minNum by remember { mutableStateOf(Int.MAX_VALUE) }
-    var isRepeated by remember { mutableStateOf(false) }
-
-    for (num in arrayNumbers) {
-        if (num < minNum) {
-            minNum = num
-            isRepeated = false
-        } else if (num == minNum) {
-            isRepeated = true
-        }
-    }
-    Column {
-        Text(text = "--> The smallest number is: $minNum")
-        if (isRepeated) {
-            Text(text = "--> The smallest number is repeat into the array")
-        }
-    }
-}
