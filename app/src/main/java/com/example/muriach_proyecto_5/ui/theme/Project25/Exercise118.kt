@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project11
+package com.example.muriach_proyecto_5.ui.theme.Project25
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,17 +26,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
-
 /*
-In this program you must enter a base and a height and the program calculates the area and counts
-how many triangles, the base is greater than 12
+When you introduce 5 ages this program show the ages and show the greatest and smallest age
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise52(navController: NavController) {
+fun Exercise118(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.6'",
+        text = "Welcome to: \n 'PROBLEM N.2'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -54,32 +52,19 @@ fun Exercise52(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "In this exercise, calculate the base and height of the rectangle and the triangle",
+            Text(text = "Introduce 5 ages --> F.e.: 21,3,4,56,12",
                 modifier = Modifier.padding(5.dp))
         }
-
-        var triangleBase by remember { mutableStateOf("") }
-        var triangleHeight by remember { mutableStateOf("") }
-        var quantity by remember { mutableStateOf(0) }
+        var inputAge by remember { mutableStateOf("") }
+        var numbers by remember { mutableStateOf(emptyList<Int>()) }
+        var result by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = triangleBase,
-            onValueChange = { triangleBase = it },
+            value = inputAge,
+            onValueChange = { inputAge = it },
             label = {
-                Text("Introduce the base of the rectangle: ")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
-
-        OutlinedTextField(
-            value = triangleHeight,
-            onValueChange = { triangleHeight = it },
-            label = {
-                Text("Introduce the height of the rectangle: ")
+                Text("Enter the ages:")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -89,31 +74,33 @@ fun Exercise52(navController: NavController) {
 
         Button(
             onClick = {
-                      textResult = ((triangleBase.toDouble() * triangleHeight.toDouble()) / 2).toString()
-                if (textResult.toDouble() > 12) {
-                    quantity++
-                }
-                triangleBase = ""
-                triangleHeight = ""
+                val input = inputAge
+                var age = input.split(",").mapNotNull { it.toIntOrNull() }
+                numbers = age
+
+                result = "Ages: " + arrayAges(numbers).toString() + "\n"
+                result += "Greatest age: " + greatestAge(numbers) + "\n"
+                result += "Smallest age: " + smallestAge(numbers)
+
+                textResult = result
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Calculate")
+            Text(text = "Load")
         }
 
         Text(
-            text = "$textResult\n" +
-                    " $quantity triangles are biggest than 12cm",
+            text =textResult,
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
             )
         )
 
-        //This button allows to go to "Cover" (also in Exercises 2,3 and 4)
+        //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP11")},
+            onClick = {navController.navigate("CoverP25")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),

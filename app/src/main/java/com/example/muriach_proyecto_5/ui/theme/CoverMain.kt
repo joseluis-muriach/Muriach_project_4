@@ -22,7 +22,8 @@ fun CoverMain(navController: NavController){
             horizontalArrangement = Arrangement.Center) {
             Button(
                 onClick = {navController.navigate("CoverP4")},
-                modifier = Modifier.padding(3.dp),
+                modifier = Modifier.padding(3.dp)
+                    .weight(1f),
 
             ) {
                 Text(text = "P4")
@@ -31,6 +32,7 @@ fun CoverMain(navController: NavController){
             Button(
                 onClick = {navController.navigate("CoverP5")},
                 modifier = Modifier.padding(3.dp)
+                    .weight(1f)
             ) {
                 Text(text = "P5")
             }
@@ -38,6 +40,7 @@ fun CoverMain(navController: NavController){
             Button(
                 onClick = {navController.navigate("CoverP6")},
                 modifier = Modifier.padding(3.dp)
+                    .weight(1f)
             ) {
                 Text(text = "P6")
             }
@@ -45,6 +48,7 @@ fun CoverMain(navController: NavController){
             Button(
                 onClick = {navController.navigate("CoverP7")},
                 modifier = Modifier.padding(3.dp)
+                    .weight(1f)
             ) {
                 Text(text = "P7")
             }
@@ -52,6 +56,7 @@ fun CoverMain(navController: NavController){
             Button(
                 onClick = {navController.navigate("CoverP8")},
                 modifier = Modifier.padding(3.dp)
+                    .weight(1f)
             ) {
                 Text(text = "P8")
             }
@@ -61,7 +66,7 @@ fun CoverMain(navController: NavController){
             horizontalArrangement = Arrangement.Center) {
             Button(
                 onClick = {navController.navigate("CoverP9")},
-                modifier = Modifier.padding(3.dp),
+                modifier = Modifier.padding(3.dp)
 
             ) {
                 Text(text = "P9")
@@ -152,12 +157,6 @@ fun CoverMain(navController: NavController){
                 Text(text = "P20")
             }
 
-            Button(
-                onClick = {navController.navigate("CoverP20")},
-                modifier = Modifier.padding(2.dp)
-            ) {
-                Text(text = "P20")
-            }
 
             Button(
                 onClick = {navController.navigate("CoverP21")},
@@ -172,18 +171,18 @@ fun CoverMain(navController: NavController){
             ) {
                 Text(text = "P22")
             }
-        }
 
-        Row(Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center) {
             Button(
                 onClick = {navController.navigate("CoverP23")},
                 modifier = Modifier.padding(2.dp),
 
-            ) {
+                ) {
                 Text(text = "P23")
             }
+        }
 
+        Row(Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center) {
             Button(
                 onClick = {navController.navigate("CoverP24")},
                 modifier = Modifier.padding(2.dp)
@@ -210,6 +209,12 @@ fun CoverMain(navController: NavController){
                 modifier = Modifier.padding(2.dp)
             ) {
                 Text(text = "P27")
+            }
+            Button(
+                onClick = {navController.navigate("CoverP27")},
+                modifier = Modifier.padding(2.dp)
+            ) {
+                Text(text = "P28")
             }
         }
     }
