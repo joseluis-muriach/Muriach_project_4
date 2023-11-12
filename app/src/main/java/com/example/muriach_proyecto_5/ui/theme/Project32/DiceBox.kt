@@ -1,9 +1,8 @@
 package com.example.muriach_proyecto_5.ui.theme.Project32
 
 class DiceBox : Dice() {
-    override fun throwDice() {
+    override fun throwDice(): String {
         super.throwDice()
-        println("Value dice box: ${"*".repeat(value)}")
-
+        return ("Value dice box: ${"*".repeat(value)}")
     }
 }
