@@ -28,7 +28,7 @@ import androidx.navigation.NavController
 
 
 /*
-This programa return the average of three input numbers
+This programa return the surface of two rectangles and tell us what is biggest
 */
 
 @OptIn(ExperimentalMaterial3Api::class)

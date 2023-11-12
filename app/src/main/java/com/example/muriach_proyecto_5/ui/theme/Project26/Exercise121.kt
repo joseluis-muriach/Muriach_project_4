@@ -66,7 +66,7 @@ fun Exercise118(navController: NavController) {
 
         Button(
             onClick = {
-                      var club = Club
+                      //var club = Club
 
             },
             modifier = Modifier.padding(10.dp)
