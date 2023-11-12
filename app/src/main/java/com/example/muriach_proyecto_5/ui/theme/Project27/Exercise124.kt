@@ -1,8 +1,8 @@
-package com.example.muriach_proyecto_5.ui.theme.Project26
+package com.example.muriach_proyecto_5.ui.theme.Project27
 
-import com.example.muriach_proyecto_5.ui.theme.Project25.arrayAges
-import com.example.muriach_proyecto_5.ui.theme.Project25.greatestAge
-import com.example.muriach_proyecto_5.ui.theme.Project25.smallestAge
+
+
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,8 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -30,13 +28,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 /*
-This exercise have two classes. The program return the person more antiquity
+This exercise has an array of numbers and the program return the array, the biggest number, and
+the smallest number
 */
 
 @Composable
-fun Exercise121(navController: NavController) {
+fun Exercise124(navController: NavController) {
     Text(
-        text = "Welcome to: \n 'PROBLEM N.2'",
+        text = "Welcome to: \n 'PROBLEM N.4'",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = 30.sp
@@ -55,7 +54,7 @@ fun Exercise121(navController: NavController) {
 
         Row(Modifier.fillMaxWidth()) {
             Text(
-                text = "Only click in the button",
+                text = "Only click the button",
                 modifier = Modifier.padding(5.dp)
             )
         }
@@ -65,8 +64,11 @@ fun Exercise121(navController: NavController) {
         Button(
             onClick = {
 
-                val club = Club()
-                textResult = club.moreAntiquity()
+                val myObject = ClassP27()
+
+                textResult += "${myObject.showArray()}\n"
+                textResult += "The biggest value is: ${myObject.biggestValue()}\n"
+                textResult += "The smallest value is: ${myObject.smallestValue()}"
 
             },
             modifier = Modifier.padding(10.dp)
@@ -87,11 +89,11 @@ fun Exercise121(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = { navController.navigate("CoverP26") },
+            onClick = { navController.navigate("CoverP27") },
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
 
         ) {
             Text(
