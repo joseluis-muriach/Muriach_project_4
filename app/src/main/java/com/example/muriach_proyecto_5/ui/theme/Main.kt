@@ -91,6 +91,8 @@ import com.example.muriach_proyecto_5.ui.theme.Project31.CoverP31
 import com.example.muriach_proyecto_5.ui.theme.Project31.Exercise136
 import com.example.muriach_proyecto_5.ui.theme.Project32.CoverP32
 import com.example.muriach_proyecto_5.ui.theme.Project32.Exercise139
+import com.example.muriach_proyecto_5.ui.theme.Project33.CoverP33
+import com.example.muriach_proyecto_5.ui.theme.Project33.Exercise141
 import com.example.muriach_proyecto_5.ui.theme.Project4.Exercise5
 import com.example.muriach_proyecto_5.ui.theme.Project4.Exercise6
 import com.example.muriach_proyecto_5.ui.theme.Project4.Exercise7
@@ -304,6 +306,10 @@ class MainActivity : ComponentActivity() {
                     //Project32
                     composable("CoverP32") { CoverP32(navController) }
                     composable("Exercise139") { Exercise139(navController) }
+
+                    //Project33
+                    composable("CoverP33") { CoverP33(navController) }
+                    composable("Exercise141") { Exercise141(navController) }
                 }
             }
         }
