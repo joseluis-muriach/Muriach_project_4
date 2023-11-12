@@ -211,7 +211,7 @@ fun CoverMain(navController: NavController){
                 Text(text = "P27")
             }
             Button(
-                onClick = {navController.navigate("CoverP27")},
+                onClick = {navController.navigate("CoverP28")},
                 modifier = Modifier.padding(2.dp)
             ) {
                 Text(text = "P28")
