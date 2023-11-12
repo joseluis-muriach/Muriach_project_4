@@ -90,7 +90,7 @@ fun Exercise93(navController: NavController) {
             value = inputNumC,
             onValueChange = { inputNumC = it },
             label = {
-                Text("Introduce a word: ")
+                Text("Introduce a number: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -102,7 +102,7 @@ fun Exercise93(navController: NavController) {
             value = inputNumD,
             onValueChange = { inputNumD = it },
             label = {
-                Text("Introduce a word: ")
+                Text("Introduce a number: ")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -115,16 +115,16 @@ fun Exercise93(navController: NavController) {
                       if (inputNumC.isEmpty()) {
                           inputNumC = 0.toString()
                           inputNumD = 0.toString()
-                          textResult = "The sum of $inputNumA + $inputNumB is " +
+                          textResult = "The sum of $inputNumA + $inputNumB is: " +
                                   "${sum(inputNumA.toDouble(), inputNumB.toDouble(),
                               inputNumC.toDouble(),inputNumD.toDouble())}"
                       } else if (inputNumD.isEmpty()){
                           inputNumD = 0.toString()
-                          textResult = "The sum of $inputNumA + $inputNumB + $inputNumC is " +
+                          textResult = "The sum of $inputNumA + $inputNumB + $inputNumC is: " +
                                   "${sum(inputNumA.toDouble(), inputNumB.toDouble(),
                                       inputNumC.toDouble(),inputNumD.toDouble())}"
                       } else {
-                          textResult = "The sum of $inputNumA + $inputNumB + $inputNumC + $inputNumD is " +
+                          textResult = "The sum of $inputNumA + $inputNumB + $inputNumC + $inputNumD is: " +
                                   "${sum(inputNumA.toDouble(), inputNumB.toDouble(),
                                       inputNumC.toDouble(),inputNumD.toDouble())}"
                       }
