@@ -58,10 +58,22 @@ fun Exercise111(navController: NavController) {
         }
         var inputName by remember { mutableStateOf("") }
         var inputMark by remember { mutableStateOf("") }
-        val maxNumStudent by remember { mutableStateOf(2) }
+        var maxNumStudent by remember { mutableStateOf("") }
         var countStudents by remember { mutableStateOf(0) }
         var totalStudents by remember { mutableStateOf("") }
         var textResult by remember { mutableStateOf("") }
+
+        OutlinedTextField(
+            value = maxNumStudent,
+            onValueChange = { maxNumStudent = it },
+            label = {
+                Text("How many students do you want introduce:")
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            singleLine = true
+        )
 
         OutlinedTextField(
             value = inputName,
@@ -95,9 +107,10 @@ fun Exercise111(navController: NavController) {
                 totalStudents += "$isRegul\n\n"
                 countStudents++
 
-                if (countStudents == maxNumStudent) {
+                if (countStudents == maxNumStudent.toInt()) {
                     textResult = "$totalStudents\n"
                 }
+
                 inputName = ""
                 inputMark = ""
             },
