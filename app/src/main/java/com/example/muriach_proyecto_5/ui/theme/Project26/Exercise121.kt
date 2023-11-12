@@ -35,7 +35,7 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise118(navController: NavController) {
+fun Exercise121(navController: NavController) {
     Text(
         text = "Welcome to: \n 'PROBLEM N.2'",
         textAlign = TextAlign.Center,
@@ -55,28 +55,31 @@ fun Exercise118(navController: NavController) {
     ) {
 
         Row(Modifier.fillMaxWidth()) {
-            Text(text = "",
-                modifier = Modifier.padding(5.dp))
+            Text(
+                text = "",
+                modifier = Modifier.padding(5.dp)
+            )
         }
-        var inputAge by remember { mutableStateOf("") }
-        var numbers by remember { mutableStateOf(emptyList<Int>()) }
-        var result by remember { mutableStateOf("") }
-        var textResult by remember { mutableStateOf("") }
 
+        var textResult by remember { mutableStateOf("") }
 
         Button(
             onClick = {
-                      //var club = Club
+
+                val club = Club()
+                textResult = club.moreAntiquity()
 
             },
             modifier = Modifier.padding(10.dp)
         ) {
 
-            Text(text = "Load")
+            Text(
+                text = "Load the result",
+            )
         }
 
         Text(
-            text =textResult,
+            text = textResult,
             modifier = Modifier.padding(10.dp),
             style = TextStyle(
                 fontSize = 20.sp
@@ -85,14 +88,15 @@ fun Exercise118(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = {navController.navigate("CoverP25")},
+            onClick = { navController.navigate("CoverP26") },
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
 
         ) {
-            Text(text = "Previous",
+            Text(
+                text = "Previous",
                 color = Color.Black
             )
         }
