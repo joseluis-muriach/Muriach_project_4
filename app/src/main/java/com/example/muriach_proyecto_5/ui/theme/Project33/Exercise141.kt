@@ -29,7 +29,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 /*
-
+In this exercise when you enter the headliner, amount, term and interest, the program show us the
+data about our count
 */
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,7 +56,7 @@ fun Exercise141(navController: NavController) {
 
         Row(Modifier.fillMaxWidth()) {
             Text(
-                text = "",
+                text = "Introduce data",
                 modifier = Modifier.padding(5.dp)
             )
         }
