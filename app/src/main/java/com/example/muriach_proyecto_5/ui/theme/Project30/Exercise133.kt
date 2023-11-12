@@ -85,7 +85,7 @@ fun Exercise133(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = { navController.navigate("CoverP28") },
+            onClick = { navController.navigate("CoverP30") },
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),

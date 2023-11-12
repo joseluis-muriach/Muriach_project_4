@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project31
+package com.example.muriach_proyecto_5.ui.theme.Project32
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,13 +27,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 /*
-The program when the user enter 3 pairs numbers, the program return the maximum number of each pair
-numbers
+In this exercise the program show us the value of a dice
 */
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Exercise136(navController: NavController) {
+fun Exercise139(navController: NavController) {
     Text(
         text = "Welcome to: \n 'PROBLEM N.3'",
         textAlign = TextAlign.Center,
@@ -54,58 +52,18 @@ fun Exercise136(navController: NavController) {
 
         Row(Modifier.fillMaxWidth()) {
             Text(
-                text = "Enter 3 pair numbers",
+                text = "Show dice value",
                 modifier = Modifier.padding(5.dp)
             )
         }
 
-        var inputNumberA by remember { mutableStateOf("") }
-        var inputNumberB by remember { mutableStateOf("") }
-        var result by remember { mutableStateOf("") }
-        var totalPairNumbers by remember { mutableStateOf(1) }
         var textResult by remember { mutableStateOf("") }
-
-        OutlinedTextField(
-            value = inputNumberA,
-            onValueChange = { inputNumberA = it },
-            label = {
-                Text("Enter the first number:")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
-
-        OutlinedTextField(
-            value = inputNumberB,
-            onValueChange = { inputNumberB = it },
-            label = {
-                Text("Enter the second number:")
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            singleLine = true
-        )
 
         Button(
             onClick = {
-                if (totalPairNumbers == 3) {
-                    result +=
-                        (Greater.maximum(
-                            inputNumberA.toDouble(), inputNumberB.toDouble()).toString()
-                                ) + "\n"
-                    textResult = result
-                } else {
-                    result +=
-                        (Greater.maximum(
-                            inputNumberA.toDouble(), inputNumberB.toDouble()).toString()
-                                ) + "\n"
-                }
-                totalPairNumbers++
-                inputNumberA = ""
-                inputNumberB = ""
+                val dice = Dice()
+                dice.throwDice()
+                textResult = dice.showValue()
             },
             modifier = Modifier.padding(10.dp)
         ) {
@@ -125,7 +83,7 @@ fun Exercise136(navController: NavController) {
 
         //This button allows to go to "Cover" (also in all Exercises)
         Button(
-            onClick = { navController.navigate("CoverP31") },
+            onClick = { navController.navigate("CoverP32") },
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),

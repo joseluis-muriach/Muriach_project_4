@@ -1,4 +1,4 @@
-package com.example.muriach_proyecto_5.ui.theme.Project31
+package com.example.muriach_proyecto_5.ui.theme.Project32
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -24,7 +24,7 @@ import androidx.navigation.NavController
 import com.example.muriach_proyecto_5.R
 
 @Composable
-fun CoverP31(navController: NavController) {
+fun CoverP32(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -40,7 +40,7 @@ fun CoverP31(navController: NavController) {
         )
 
         Text(
-            text = "Exercises Project 31",
+            text = "Exercises Project 32",
             fontSize = 40.sp
         )
         Spacer(modifier = Modifier.size(30.dp))
@@ -50,12 +50,12 @@ fun CoverP31(navController: NavController) {
             horizontalArrangement = Arrangement.Center){
 
             Button(
-                onClick = { navController.navigate("Exercise136") },
+                onClick = { navController.navigate("Exercise139") },
                 modifier = Modifier.width(200.dp)
                     .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Green)
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
             ) {
-                Text(text = "Exercise 136",
+                Text(text = "Exercise 139",
                     color = Color.Black
                 )
             }
@@ -71,15 +71,15 @@ fun CoverP31(navController: NavController) {
             Text(text = "All projects")
         }
         Button(
-            onClick = {navController.navigate("CoverP32")},
+            onClick = {navController.navigate("CoverP33")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Blue)
 
         ) {
             Text(text = "Next project",
-                color = Color.Black)
+                color = Color.White)
         }
     }
 }
