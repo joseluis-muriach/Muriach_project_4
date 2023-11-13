@@ -24,7 +24,7 @@ import androidx.navigation.NavController
 import com.example.muriach_proyecto_5.R
 
 @Composable
-fun CoverP33(navController: NavController) {
+fun CoverP34(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -40,7 +40,7 @@ fun CoverP33(navController: NavController) {
         )
 
         Text(
-            text = "Exercises Project 33",
+            text = "Exercises Project 34",
             fontSize = 40.sp
         )
         Spacer(modifier = Modifier.size(30.dp))
@@ -50,12 +50,12 @@ fun CoverP33(navController: NavController) {
             horizontalArrangement = Arrangement.Center){
 
             Button(
-                onClick = { navController.navigate("Exercise141") },
+                onClick = { navController.navigate("Exercise142") },
                 modifier = Modifier.width(200.dp)
                     .padding(5.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Blue)
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
             ) {
-                Text(text = "Exercise 141",
+                Text(text = "Exercise 142",
                     color = Color.White
                 )
             }
@@ -71,11 +71,11 @@ fun CoverP33(navController: NavController) {
             Text(text = "All projects")
         }
         Button(
-            onClick = {navController.navigate("CoverP34")},
+            onClick = {navController.navigate("CoverP35")},
             modifier = Modifier
                 .padding(10.dp)
                 .align(Alignment.End),
-            colors = ButtonDefaults.buttonColors(containerColor = Color.Black)
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
 
         ) {
             Text(text = "Next project",
