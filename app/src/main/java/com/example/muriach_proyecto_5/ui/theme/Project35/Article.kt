@@ -1,20 +1,21 @@
 package com.example.muriach_proyecto_5.ui.theme.Project35
 
-class Article (
-    val name: String,
-    val price: Double
-) {
-    override fun toString(): String {
-        return "$name - Price: $price"
-    }
-}
+data class Article(val code: Int, val descripcion: String, var price: Float)
 
-class ArticleFunction {
-    companion object {
-        fun showArticles(articles: Array<Article>) {
-            for (article in articles) {
-                println(article)
-            }
-        }
+class Inventory(val articles: Array<Article>) {
+    fun showArticles(): String {
+        val stringBuilder = StringBuilder()
+        stringBuilder.append("Inventory components:\n")
+        articles.forEach { stringBuilder.append("$it\n") }
+        stringBuilder.append("\n")
+        return stringBuilder.toString()
+    }
+
+    fun increasePrice(percentage: Float): String {
+        val stringBuilder = StringBuilder()
+        stringBuilder.append("Aumentando en $percentage% el precio de todos los productos:\n")
+        articles.forEach { it.price *= (1 + percentage) }
+        stringBuilder.append("Aumento completado.\n\n")
+        return stringBuilder.toString()
     }
 }
